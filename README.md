@@ -1,7 +1,7 @@
 # Projeto de controle de treinamento
 
 ### Progresso
-0 - não iniciado
+0 - não iniciado \n
 1 - iniciado
 2 - em progresso
 3 - finalizado
