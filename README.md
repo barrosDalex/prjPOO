@@ -1,10 +1,10 @@
 # Projeto de controle de treinamento
 
 ### Progresso
-0 - não iniciado \n
-1 - iniciado
-2 - em progresso
-3 - finalizado
+0 - não iniciado "\n"
+1 - iniciado "\n"
+2 - em progresso "\n"
+3 - finalizado "\n"
 
 ### Tarefas
 T0- Baixar o projeto (0-3)
