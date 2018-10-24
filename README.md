@@ -11,13 +11,30 @@
 <br>
 
 ### Tarefas
-T0- Baixar o projeto (0-3)
+#### T0- Baixar o projeto (0-3)
 <br>
-T1- Codificar as classes do diagrama (0-3)
+#### T1- Codificar as classes do diagrama (0-3)
 <br>
-T2- Desenvolver as ligaçoes (0-3)
+Pessoa
 <br>
-T3- Desenvolver os métodos(0-3)
+Instrutor
+<br>
+Aluno
+<br>
+Turma
+<br>
+Curso
+<br>
+matricula
+<br>
+AVista
+<br>
+APrazo
+<br>
+<br>
+#### T2- Desenvolver as ligaçoes (0-3)
+<br>
+#### T3- Desenvolver os métodos(0-3)
 <br>
 ## Responsaveis
 Alex Barros - T0 - (3)
