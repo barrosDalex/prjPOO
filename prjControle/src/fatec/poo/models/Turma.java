@@ -17,6 +17,7 @@ public class Turma {
     private String Periodo;
     private int QtdVagas;
     private String Observacoes;
+    private Curso Curso;
 
     public Turma(String SiglaTurma, String Descricao) {
         this.SiglaTurma = SiglaTurma;
@@ -49,5 +50,9 @@ public class Turma {
     
     public void emitirListaFrequencia(){
         //Não implementar nesse trabalho
+    }
+
+    public void setCurso(Curso Curso) {
+        this.Curso = Curso;
     }
 }

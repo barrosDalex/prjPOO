@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package fatec.poo.models;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,10 +18,13 @@ public class Curso {
     private String DataVigencia;
     private double ValorHoraInstrutor;
     private String Programa;
+    private ArrayList<Turma> Turmas;
 
     public Curso(String Sigla, String Nome) {
         this.Sigla = Sigla;
         this.Nome = Nome;
+        Turmas = new ArrayList<Turma>();
+        
     }
 
     public void setCargaHoraria(int CargaHoraria) {
