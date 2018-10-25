@@ -11,6 +11,5 @@ public class Aluno extends Pessoa{
     public void setEscolaridade(String Escolaridade) {
         this.Escolaridade = Escolaridade;
     }
-             
-       
+                   
 }
