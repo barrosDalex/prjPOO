@@ -46,4 +46,9 @@ public class Curso {
     public void setPrograma(String Programa) {
         this.Programa = Programa;
     }
+    
+    public void addTurma(Turma t){
+        Turmas.add(t);
+        t.setCurso(this);
+    }
 }
