@@ -69,4 +69,9 @@ public class Turma {
         Matriculas.add(m);
         m.setTurma(this);
     }
+    
+    public void addInstrutor(){
+        
+    }
+    
 }

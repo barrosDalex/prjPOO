@@ -14,6 +14,7 @@ public class AVista {
     private int Agencia;
     private int NCheque;       
     private String PreData;
+    private Matricula matricula;
 
     public double getValor() {
         return Valor;
@@ -47,5 +48,7 @@ public class AVista {
         this.PreData = PreData;
     }
     
-    
+    public void addMatricula(Matricula m){
+        this.matricula = m;
+    }
 }

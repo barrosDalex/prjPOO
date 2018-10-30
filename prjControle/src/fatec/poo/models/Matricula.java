@@ -13,7 +13,8 @@ public class Matricula {
     private int QtdeFaltas;
     private double Nota;
     private Aluno aluno;
-
+    private Turma turma;
+    
     public String getData() {
         return Data;
     }
@@ -38,5 +39,23 @@ public class Matricula {
         this.Nota = Nota;
     }
 
-
+    public void addAluno(Aluno a){
+        this.aluno = a;
+    }
+    
+    public void setAluno(Aluno a){
+        this.aluno = a;
+    }
+    
+    public void setTurma(Turma t){
+        this.turma = t;
+    }
+    
+    public void addTurma(Turma t){
+        this.turma = t;
+    }
+    
+    public void EmitirCarne(){
+        //Não implementar neste trabalho
+    }
 }
