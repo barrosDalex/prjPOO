@@ -60,7 +60,7 @@ public class Turma {
     public void setCurso(Curso C) {
         this.Curso = C;
     }
-    
+       
     public void setInstrutor(Instrutor I){
         this.instrutor = I;
     }

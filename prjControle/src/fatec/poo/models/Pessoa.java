@@ -3,7 +3,6 @@ package fatec.poo.models;
 public class Pessoa {
 
     private int Numero;
-    
     private String Nome;
     private String DataNasc;
     private String Endereco;
@@ -82,10 +81,6 @@ public class Pessoa {
 
     public void setEmail(String Email) {
         this.Email = Email;
-    }
-                   
-            
-    
-    
+    }   
     
 }
