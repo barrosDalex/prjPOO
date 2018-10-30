@@ -79,4 +79,9 @@ public class Turma {
         I.setTurma(this);
     }
     
+    public void addCurso(Curso c){
+        this.Curso = c;
+        c.setTurma(this);
+    }
+    
 }

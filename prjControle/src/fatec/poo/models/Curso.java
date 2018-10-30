@@ -43,4 +43,8 @@ public class Curso {
         Turmas.add(t);
         t.setCurso(this);
     }
+    
+    public void setTurma(Turma t){
+        Turmas.add(t);
+    }
 }
