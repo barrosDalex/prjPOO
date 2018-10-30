@@ -52,6 +52,10 @@ public class Turma {
     public void setObservacoes(String Observacoes) {
         this.Observacoes = Observacoes;
     }
+    
+    public void setMatricula(Matricula m){
+        Matriculas.add(m);
+    }
       
     public void emitirListaFrequencia(){
         //Não implementar nesse trabalho
@@ -70,8 +74,9 @@ public class Turma {
         m.setTurma(this);
     }
     
-    public void addInstrutor(){
-        
+    public void addInstrutor(Instrutor I){
+        this.instrutor = I;
+        I.setTurma(this);
     }
     
 }

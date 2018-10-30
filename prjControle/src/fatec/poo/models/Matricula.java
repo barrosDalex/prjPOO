@@ -33,6 +33,7 @@ public class Matricula {
 
     public void addAluno(Aluno a){
         this.aluno = a;
+        a.setMatricula(this);
     }
     
     public void setAluno(Aluno a){
@@ -45,6 +46,7 @@ public class Matricula {
     
     public void addTurma(Turma t){
         this.turma = t;
+        t.setMatricula(this);
     }
     
     public void EmitirCarne(){
