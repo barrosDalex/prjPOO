@@ -25,4 +25,8 @@ public class Instrutor extends Pessoa{
         turmas.add(t);
         t.setInstrutor(this);
     }
+    
+    public void setTurma(Turma t){
+        turmas.add(t);
+    }
 }
