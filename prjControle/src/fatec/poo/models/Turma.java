@@ -20,7 +20,7 @@ public class Turma {
     private int QtdVagas;
     private String Observacoes;
     private Curso Curso;
-    private Instrutor Intstrutor;
+    private Instrutor Instrutor;
     private ArrayList<Matricula> Matriculas;
 
     public Turma(String SiglaTurma, String Descricao) {
@@ -62,7 +62,7 @@ public class Turma {
     }
     
     public void setInstrutor(Instrutor I){
-        this.Instrutor = i;
+        this.Instrutor = I;
     }
     
     public void addMatricula(Matricula m){
