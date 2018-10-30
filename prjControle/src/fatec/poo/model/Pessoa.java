@@ -1,4 +1,4 @@
-package fatec.poo.models;
+package fatec.poo.model;
 
 public class Pessoa {
 
