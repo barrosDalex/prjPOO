@@ -14,6 +14,7 @@ public class APrazo {
     private String DtVencimento;
     private double TaxaJuros;
     private int QtdeMensalidade;
+    private Matricula matricula;
 
     public double getValor() {
         return Valor;
@@ -47,5 +48,7 @@ public class APrazo {
         this.QtdeMensalidade = QtdeMensalidade;
     }
     
-    
+    public void addMatricula(Matricula m){
+        this.matricula = m;
+    }
 }
