@@ -2,6 +2,8 @@ lab
 txtf
 ftf
 cbox
+btn
+pai
 
 ftfCPF
 ftfCEP
@@ -46,17 +48,29 @@ labAreaAtu
 CPF
 Nome
 Sexo
-Endereco
+Endereço
 Bairro
 Cidade
 RG
-Formacao
+Formação
 Email
-Numero
+Número
 Estado
 Data de Nascimento
 Estado Civil
 CEP
 Tel. Res.
 Celular
-Area de Atuacao
+Área de Atuação
+
+Consultar
+Inserir
+Alterar
+Excluir
+Sair
+
+btnConsultar
+btnInserir
+btnAlterar
+btnExcluir
+btnSair

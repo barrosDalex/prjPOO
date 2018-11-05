@@ -53,6 +53,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
         ftfCel = new javax.swing.JFormattedTextField();
         ftfRG = new javax.swing.JFormattedTextField();
         ftfDatNas = new javax.swing.JFormattedTextField();
+        btnConsultar = new javax.swing.JButton();
+        btnInserir = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(3, 3));
@@ -139,12 +144,27 @@ public class GUIinstrutor extends javax.swing.JFrame {
             }
         });
 
+        btnConsultar.setText("Consultar");
+
+        btnInserir.setText("Inserir");
+        btnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserirActionPerformed(evt);
+            }
+        });
+
+        btnAlterar.setText("Alterar");
+
+        btnExcluir.setText("Excluir");
+
+        btnSair.setText("Sair");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 360, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,6 +189,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
                         .addGap(95, 95, 95))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnConsultar)
                             .addComponent(labNum)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,14 +202,24 @@ public class GUIinstrutor extends javax.swing.JFrame {
                                     .addComponent(labEmail))
                                 .addGap(83, 83, 83)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labAreaAtu)
-                                    .addComponent(labCel)
-                                    .addComponent(labTelRes)
                                     .addComponent(labCEP)
                                     .addComponent(labEstCiv)
                                     .addComponent(labDatNas)
-                                    .addComponent(labEstado))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(labEstado)
+                                    .addComponent(labCel)
+                                    .addComponent(labTelRes)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labAreaAtu)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnInserir)
+                                                .addGap(37, 37, 37)
+                                                .addComponent(btnAlterar)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                        .addComponent(btnExcluir)))))
+                        .addGap(29, 29, 29)
+                        .addComponent(btnSair)
+                        .addGap(133, 133, 133))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(466, Short.MAX_VALUE)
@@ -260,30 +291,36 @@ public class GUIinstrutor extends javax.swing.JFrame {
                     .addComponent(labAreaAtu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labNum)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConsultar)
+                    .addComponent(btnInserir)
+                    .addComponent(btnAlterar)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnSair)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(222, Short.MAX_VALUE)
+                    .addContainerGap(227, Short.MAX_VALUE)
                     .addComponent(ftfCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(205, 205, 205)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(232, Short.MAX_VALUE)
+                    .addContainerGap(237, Short.MAX_VALUE)
                     .addComponent(ftfTelRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(195, 195, 195)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(242, Short.MAX_VALUE)
+                    .addContainerGap(247, Short.MAX_VALUE)
                     .addComponent(ftfCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(185, 185, 185)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(252, Short.MAX_VALUE)
+                    .addContainerGap(257, Short.MAX_VALUE)
                     .addComponent(ftfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(175, 175, 175)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(262, Short.MAX_VALUE)
+                    .addContainerGap(267, Short.MAX_VALUE)
                     .addComponent(ftfDatNas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(165, 165, 165)))
         );
@@ -314,6 +351,10 @@ public class GUIinstrutor extends javax.swing.JFrame {
     private void ftfDatNasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfDatNasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ftfDatNasActionPerformed
+
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInserirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,6 +392,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnInserir;
+    private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> cboxEstCiv;
     private javax.swing.JComboBox<String> cboxEstado;
     private javax.swing.JComboBox<String> cboxSexo;
