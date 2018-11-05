@@ -128,7 +128,7 @@ public class GUIcurso extends javax.swing.JFrame {
                             .addComponent(txtfCarHor)
                             .addComponent(txtfNomCur)
                             .addComponent(txtfSigCur, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))))
-                .addGap(37, 37, 37)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAlterar)
