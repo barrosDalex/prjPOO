@@ -9,7 +9,6 @@ ftfCPF
 ftfCEP
 ftfTelRes
 ftfCel
-ftfRG
 ftfDatNas
 
 txtfNome
@@ -20,6 +19,7 @@ txtfForm
 txtfEmail
 txtfNum
 txtfAreaAtu
+txtfRG
 
 cboxSexo
 cboxEstado
