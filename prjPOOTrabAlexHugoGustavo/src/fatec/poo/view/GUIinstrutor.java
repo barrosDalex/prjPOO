@@ -105,9 +105,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
         labAreaAtu.setText("Área de Atuação");
 
         cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxSexo.setEnabled(false);
 
         cboxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cboxEstado.setEnabled(false);
         cboxEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxEstadoActionPerformed(evt);
@@ -115,25 +117,30 @@ public class GUIinstrutor extends javax.swing.JFrame {
         });
 
         cboxEstCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxEstCiv.setEnabled(false);
 
+        ftfCPF.setEnabled(false);
         ftfCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ftfCPFActionPerformed(evt);
             }
         });
 
+        ftfCEP.setEnabled(false);
         ftfCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ftfCEPActionPerformed(evt);
             }
         });
 
+        ftfTelRes.setEnabled(false);
         ftfTelRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ftfTelResActionPerformed(evt);
             }
         });
 
+        ftfCel.setEnabled(false);
         ftfCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ftfCelActionPerformed(evt);
@@ -142,6 +149,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
 
         ftfDatNas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         ftfDatNas.setToolTipText("");
+        ftfDatNas.setEnabled(false);
         ftfDatNas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ftfDatNasActionPerformed(evt);
@@ -153,6 +161,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setEnabled(false);
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -161,12 +170,35 @@ public class GUIinstrutor extends javax.swing.JFrame {
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setEnabled(false);
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
+
+        txtfEnd.setEnabled(false);
+        txtfEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfEndActionPerformed(evt);
+            }
+        });
+
+        txtfBairro.setEnabled(false);
+
+        txtfCidade.setEnabled(false);
+
+        txtfForm.setEnabled(false);
+
+        txtfEmail.setEnabled(false);
+
+        txtfNum.setEnabled(false);
+
+        txtfAreaAtu.setEnabled(false);
+
+        txtfRG.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -406,6 +438,10 @@ public class GUIinstrutor extends javax.swing.JFrame {
     private void cboxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboxEstadoActionPerformed
+
+    private void txtfEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfEndActionPerformed
 
     /**
      * @param args the command line arguments
