@@ -32,18 +32,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                      <Component id="labNome" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="labEnd" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="labEnd" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtfEnd" max="32767" attributes="0"/>
-                                  <Component id="txtfNome" pref="72" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtfEnd" min="-2" pref="72" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -76,6 +67,17 @@
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                   <Component id="txtfCidade" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="labCPF" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="50" pref="50" max="50" attributes="0"/>
+                              <Component id="ftfCPF" min="-2" pref="74" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labNome" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="txtfNome" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -143,11 +145,6 @@
                                       <Component id="ftfCel" min="-2" pref="56" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="2" attributes="0">
-                                      <Component id="labCPF" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="50" pref="50" max="50" attributes="0"/>
-                                      <Component id="ftfCPF" min="-2" pref="74" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="2" attributes="0">
                                       <Component id="labCEP" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="54" pref="54" max="54" attributes="0"/>
                                       <Component id="ftfCEP" min="-2" pref="56" max="-2" attributes="0"/>
@@ -166,17 +163,17 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Group type="102" alignment="3" attributes="0">
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="labNome" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="labSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cboxSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtfNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ftfCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Group type="102" alignment="3" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -216,7 +213,15 @@
                           </Group>
                           <Component id="txtfCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="102" alignment="3" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="labNome" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtfNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Group type="102" alignment="3" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -250,12 +255,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ftfCPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labCPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ftfCel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labCel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -441,9 +441,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="ftfCPF">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ftfCPFActionPerformed"/>
       </Events>
@@ -531,6 +528,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtfNome">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtfEnd">
       <Properties>
