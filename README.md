@@ -9,7 +9,7 @@ Button - btn
 <br>
 Label - lab
 <br>
-TextBox - tbox
+Text Field - txtf
 <br>
 Formatted Text Field - ftf
 <br>
