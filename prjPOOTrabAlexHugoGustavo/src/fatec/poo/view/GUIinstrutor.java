@@ -65,7 +65,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
         txtfEmail = new javax.swing.JTextField();
         txtfNum = new javax.swing.JTextField();
         txtfAreaAtu = new javax.swing.JTextField();
-        txtfRG = new javax.swing.JTextField();
+        ftfRG = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(3, 3));
@@ -215,7 +215,12 @@ public class GUIinstrutor extends javax.swing.JFrame {
 
         txtfAreaAtu.setEnabled(false);
 
-        txtfRG.setEnabled(false);
+        ftfRG.setEnabled(false);
+        ftfRG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfRGActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,16 +309,16 @@ public class GUIinstrutor extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(ftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtfRG, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(labCidade)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(labEstado)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cboxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(labCidade)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(labEstado)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cboxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(ftfRG, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cboxEstCiv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -361,12 +366,10 @@ public class GUIinstrutor extends javax.swing.JFrame {
                             .addComponent(txtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labEstado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(labRG))
-                            .addComponent(txtfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labRG)
+                            .addComponent(ftfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtfAreaAtu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -451,6 +454,10 @@ public class GUIinstrutor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNumActionPerformed
 
+    private void ftfRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfRGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfRGActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -499,6 +506,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField ftfCPF;
     private javax.swing.JFormattedTextField ftfCel;
     private javax.swing.JFormattedTextField ftfDatNas;
+    private javax.swing.JFormattedTextField ftfRG;
     private javax.swing.JFormattedTextField ftfTelRes;
     private javax.swing.JLabel labAreaAtu;
     private javax.swing.JLabel labBairro;
@@ -525,6 +533,5 @@ public class GUIinstrutor extends javax.swing.JFrame {
     private javax.swing.JTextField txtfForm;
     private javax.swing.JTextField txtfNome;
     private javax.swing.JTextField txtfNum;
-    private javax.swing.JTextField txtfRG;
     // End of variables declaration//GEN-END:variables
 }
