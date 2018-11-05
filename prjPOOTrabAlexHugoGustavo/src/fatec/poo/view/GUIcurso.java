@@ -39,6 +39,13 @@ public class GUIcurso extends javax.swing.JFrame {
         labProgCur = new javax.swing.JLabel();
         labDatVig = new javax.swing.JLabel();
         labValIns = new javax.swing.JLabel();
+        txtfSigCur = new javax.swing.JTextField();
+        txtfNomCur = new javax.swing.JTextField();
+        txtfCarHor = new javax.swing.JTextField();
+        txtfValCur = new javax.swing.JTextField();
+        txtfProgCur = new javax.swing.JTextField();
+        txtfValIns = new javax.swing.JTextField();
+        ftfDatVig = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +86,23 @@ public class GUIcurso extends javax.swing.JFrame {
 
         labValIns.setText("Valor hora Instrutor");
 
+        txtfNomCur.setEnabled(false);
+
+        txtfCarHor.setEnabled(false);
+
+        txtfValCur.setEnabled(false);
+
+        txtfProgCur.setEnabled(false);
+        txtfProgCur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfProgCurActionPerformed(evt);
+            }
+        });
+
+        txtfValIns.setEnabled(false);
+
+        ftfDatVig.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,42 +112,76 @@ public class GUIcurso extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(btnInserir)
-                        .addGap(37, 37, 37)
+                        .addComponent(btnInserir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labSigCur)
+                            .addComponent(btnConsultar)
+                            .addComponent(labNomCur)
+                            .addComponent(labCarHor)
+                            .addComponent(labValCur)
+                            .addComponent(labProgCur))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtfProgCur)
+                            .addComponent(txtfValCur)
+                            .addComponent(txtfCarHor)
+                            .addComponent(txtfNomCur)
+                            .addComponent(txtfSigCur, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAlterar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnExcluir))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(labSigCur)
-                        .addComponent(btnConsultar)
-                        .addComponent(labNomCur)
-                        .addComponent(labCarHor)
-                        .addComponent(labValCur)
-                        .addComponent(labProgCur)
-                        .addComponent(labDatVig)
-                        .addComponent(labValIns)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSair)
+                        .addComponent(btnExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSair))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labDatVig)
+                            .addComponent(labValIns))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ftfDatVig, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                            .addComponent(txtfValIns))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(labSigCur)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labSigCur)
+                            .addComponent(txtfSigCur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labNomCur)
+                            .addComponent(txtfNomCur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labCarHor)
+                            .addComponent(txtfCarHor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labDatVig)
+                            .addComponent(ftfDatVig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labValIns)
+                            .addComponent(txtfValIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labNomCur)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labValCur)
+                    .addComponent(txtfValCur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labCarHor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labValCur)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labProgCur)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labDatVig)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labValIns)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labProgCur)
+                    .addComponent(txtfProgCur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConsultar)
                     .addComponent(btnInserir)
@@ -139,6 +197,10 @@ public class GUIcurso extends javax.swing.JFrame {
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInserirActionPerformed
+
+    private void txtfProgCurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfProgCurActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfProgCurActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +243,7 @@ public class GUIcurso extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnInserir;
     private javax.swing.JButton btnSair;
+    private javax.swing.JFormattedTextField ftfDatVig;
     private javax.swing.JLabel labCarHor;
     private javax.swing.JLabel labDatVig;
     private javax.swing.JLabel labNomCur;
@@ -188,5 +251,11 @@ public class GUIcurso extends javax.swing.JFrame {
     private javax.swing.JLabel labSigCur;
     private javax.swing.JLabel labValCur;
     private javax.swing.JLabel labValIns;
+    private javax.swing.JTextField txtfCarHor;
+    private javax.swing.JTextField txtfNomCur;
+    private javax.swing.JTextField txtfProgCur;
+    private javax.swing.JTextField txtfSigCur;
+    private javax.swing.JTextField txtfValCur;
+    private javax.swing.JTextField txtfValIns;
     // End of variables declaration//GEN-END:variables
 }
