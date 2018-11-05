@@ -1,3 +1,26 @@
+CPF
+Nome
+Sexo
+Endereço
+Bairro
+Cidade
+RG
+Formação
+Email
+Número
+Estado
+Data de Nascimento
+Estado Civil
+CEP
+Tel. Res.
+Celular
+Área de Atuação
+Consultar
+Inserir
+Alterar
+Excluir
+Sair
+
 lab
 txtf
 ftf
@@ -25,7 +48,11 @@ cboxSexo
 cboxEstado
 cboxEstCiv
 
-
+btnConsultar
+btnInserir
+btnAlterar
+btnExcluir
+btnSair
 
 labCPF
 labNome
@@ -44,33 +71,3 @@ labCEP
 labTelRes
 labCel
 labAreaAtu
-
-CPF
-Nome
-Sexo
-Endereço
-Bairro
-Cidade
-RG
-Formação
-Email
-Número
-Estado
-Data de Nascimento
-Estado Civil
-CEP
-Tel. Res.
-Celular
-Área de Atuação
-
-Consultar
-Inserir
-Alterar
-Excluir
-Sair
-
-btnConsultar
-btnInserir
-btnAlterar
-btnExcluir
-btnSair
