@@ -17,6 +17,8 @@ ComboBox - cbox
 <br>
 Menu Bar - mbar
 <br>
+Painel - pai
+<br>
 Menu - men
 <br>
 
