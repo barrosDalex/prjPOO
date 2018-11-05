@@ -27,21 +27,293 @@ public class GUIinstrutor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labCPF = new javax.swing.JLabel();
+        labNome = new javax.swing.JLabel();
+        labSexo = new javax.swing.JLabel();
+        labEnd = new javax.swing.JLabel();
+        labBairro = new javax.swing.JLabel();
+        labCidade = new javax.swing.JLabel();
+        labRG = new javax.swing.JLabel();
+        labForm = new javax.swing.JLabel();
+        labEmail = new javax.swing.JLabel();
+        labNum = new javax.swing.JLabel();
+        labEstado = new javax.swing.JLabel();
+        labDatNas = new javax.swing.JLabel();
+        labEstCiv = new javax.swing.JLabel();
+        labCEP = new javax.swing.JLabel();
+        labTelRes = new javax.swing.JLabel();
+        labCel = new javax.swing.JLabel();
+        labAreaAtu = new javax.swing.JLabel();
+        cboxSexo = new javax.swing.JComboBox<>();
+        cboxEstado = new javax.swing.JComboBox<>();
+        cboxEstCiv = new javax.swing.JComboBox<>();
+        ftfCPF = new javax.swing.JFormattedTextField();
+        ftfCEP = new javax.swing.JFormattedTextField();
+        ftfTelRes = new javax.swing.JFormattedTextField();
+        ftfCel = new javax.swing.JFormattedTextField();
+        ftfRG = new javax.swing.JFormattedTextField();
+        ftfDatNas = new javax.swing.JFormattedTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(3, 3));
+
+        labCPF.setText("CPF");
+
+        labNome.setText("Nome");
+
+        labSexo.setText("Sexo");
+
+        labEnd.setText("Endereço");
+
+        labBairro.setText("Bairro");
+
+        labCidade.setText("Cidade");
+
+        labRG.setText("RG");
+
+        labForm.setText("Formação");
+
+        labEmail.setText("Email");
+
+        labNum.setText("Número");
+
+        labEstado.setText("Estado");
+
+        labDatNas.setText("Data de Nascimento");
+
+        labEstCiv.setText("Estado Civil");
+
+        labCEP.setText("CEP");
+
+        labTelRes.setText("Tel. Res.");
+
+        labCel.setText("Celular");
+
+        labAreaAtu.setText("Área de Atuação");
+
+        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboxEstCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ftfCPF.setText("jFormattedTextField2");
+        ftfCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfCPFActionPerformed(evt);
+            }
+        });
+
+        ftfCEP.setText("jFormattedTextField2");
+        ftfCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfCEPActionPerformed(evt);
+            }
+        });
+
+        ftfTelRes.setText("jFormattedTextField2");
+        ftfTelRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfTelResActionPerformed(evt);
+            }
+        });
+
+        ftfCel.setText("jFormattedTextField2");
+        ftfCel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfCelActionPerformed(evt);
+            }
+        });
+
+        ftfRG.setText("jFormattedTextField2");
+        ftfRG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfRGActionPerformed(evt);
+            }
+        });
+
+        ftfDatNas.setText("jFormattedTextField2");
+        ftfDatNas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfDatNasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(43, 360, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cboxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(cboxEstCiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(234, 234, 234))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(cboxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(218, 218, 218))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labCPF)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(95, 95, 95))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labNum)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labSexo)
+                                    .addComponent(labEnd)
+                                    .addComponent(labBairro)
+                                    .addComponent(labCidade)
+                                    .addComponent(labRG)
+                                    .addComponent(labForm)
+                                    .addComponent(labEmail))
+                                .addGap(83, 83, 83)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labAreaAtu)
+                                    .addComponent(labCel)
+                                    .addComponent(labTelRes)
+                                    .addComponent(labCEP)
+                                    .addComponent(labEstCiv)
+                                    .addComponent(labDatNas)
+                                    .addComponent(labEstado))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(466, Short.MAX_VALUE)
+                    .addComponent(ftfCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(85, 85, 85)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(476, Short.MAX_VALUE)
+                    .addComponent(ftfTelRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(75, 75, 75)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(486, Short.MAX_VALUE)
+                    .addComponent(ftfCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(65, 65, 65)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(496, Short.MAX_VALUE)
+                    .addComponent(ftfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(55, 55, 55)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(506, Short.MAX_VALUE)
+                    .addComponent(ftfDatNas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(45, 45, 45)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(cboxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(cboxEstCiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labCPF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labSexo)
+                    .addComponent(labEstado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labEnd)
+                    .addComponent(labDatNas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labBairro)
+                    .addComponent(labEstCiv))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labCidade)
+                    .addComponent(labCEP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labRG)
+                    .addComponent(labTelRes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labForm)
+                    .addComponent(labCel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labEmail)
+                    .addComponent(labAreaAtu))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labNum)
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(222, Short.MAX_VALUE)
+                    .addComponent(ftfCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(205, 205, 205)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(232, Short.MAX_VALUE)
+                    .addComponent(ftfTelRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(195, 195, 195)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(242, Short.MAX_VALUE)
+                    .addComponent(ftfCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(185, 185, 185)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(252, Short.MAX_VALUE)
+                    .addComponent(ftfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(175, 175, 175)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(262, Short.MAX_VALUE)
+                    .addComponent(ftfDatNas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(165, 165, 165)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ftfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfCPFActionPerformed
+
+    private void ftfCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfCEPActionPerformed
+
+    private void ftfTelResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfTelResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfTelResActionPerformed
+
+    private void ftfCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfCelActionPerformed
+
+    private void ftfRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfRGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfRGActionPerformed
+
+    private void ftfDatNasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfDatNasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfDatNasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +351,31 @@ public class GUIinstrutor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cboxEstCiv;
+    private javax.swing.JComboBox<String> cboxEstado;
+    private javax.swing.JComboBox<String> cboxSexo;
+    private javax.swing.JFormattedTextField ftfCEP;
+    private javax.swing.JFormattedTextField ftfCPF;
+    private javax.swing.JFormattedTextField ftfCel;
+    private javax.swing.JFormattedTextField ftfDatNas;
+    private javax.swing.JFormattedTextField ftfRG;
+    private javax.swing.JFormattedTextField ftfTelRes;
+    private javax.swing.JLabel labAreaAtu;
+    private javax.swing.JLabel labBairro;
+    private javax.swing.JLabel labCEP;
+    private javax.swing.JLabel labCPF;
+    private javax.swing.JLabel labCel;
+    private javax.swing.JLabel labCidade;
+    private javax.swing.JLabel labDatNas;
+    private javax.swing.JLabel labEmail;
+    private javax.swing.JLabel labEnd;
+    private javax.swing.JLabel labEstCiv;
+    private javax.swing.JLabel labEstado;
+    private javax.swing.JLabel labForm;
+    private javax.swing.JLabel labNome;
+    private javax.swing.JLabel labNum;
+    private javax.swing.JLabel labRG;
+    private javax.swing.JLabel labSexo;
+    private javax.swing.JLabel labTelRes;
     // End of variables declaration//GEN-END:variables
 }
