@@ -1,3 +1,38 @@
+Base
+
+lab
+txtf
+ftf
+cbox
+btn
+pai
+
+Curso
+
+Sigla Curso
+Nome Curso
+Carga horária
+Valor Curso
+Programa do Curso
+Data de Vigência
+Valor hora Instrutor
+
+labSigCur
+labNomCur
+labCarHor
+labValCur
+labProgCur
+labDatVig
+labValIns
+
+btnConsultar
+btnInserir
+btnAlterar
+btnExcluir
+btnSair
+
+Instrutor
+
 CPF
 Nome
 Sexo
@@ -20,13 +55,6 @@ Inserir
 Alterar
 Excluir
 Sair
-
-lab
-txtf
-ftf
-cbox
-btn
-pai
 
 ftfCPF
 ftfCEP

@@ -104,7 +104,8 @@ public class GUIinstrutor extends javax.swing.JFrame {
 
         labAreaAtu.setText("Área de Atuação");
 
-        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxSexo.setMaximumRowCount(9);
+        cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         cboxSexo.setEnabled(false);
 
         cboxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -192,6 +193,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
         txtfCidade.setEnabled(false);
 
         txtfForm.setEnabled(false);
+        txtfForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfFormActionPerformed(evt);
+            }
+        });
 
         txtfEmail.setEnabled(false);
 
@@ -214,15 +220,10 @@ public class GUIinstrutor extends javax.swing.JFrame {
                                 .addComponent(labEnd)
                                 .addGap(29, 29, 29)
                                 .addComponent(txtfEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labEmail)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtfEmail))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labForm)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtfForm, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labEmail)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labNum)
                                 .addGap(10, 10, 10)
@@ -303,7 +304,12 @@ public class GUIinstrutor extends javax.swing.JFrame {
                                         .addComponent(labCEP)
                                         .addGap(54, 54, 54)
                                         .addComponent(ftfCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(206, 206, 206))))))
+                                .addGap(206, 206, 206))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtfForm, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,6 +450,10 @@ public class GUIinstrutor extends javax.swing.JFrame {
     private void txtfEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfEndActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfEndActionPerformed
+
+    private void txtfFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfFormActionPerformed
 
     /**
      * @param args the command line arguments
