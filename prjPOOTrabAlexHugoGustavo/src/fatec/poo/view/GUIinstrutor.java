@@ -108,7 +108,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
         cboxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         cboxSexo.setEnabled(false);
 
-        cboxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre", "Alagoas ", "Amapá ", "Amazonas ", "Bahia ", "Ceará ", "Distrito Federal ", "Espírito Santo ", "Goiás ", "Maranhão", "Mato Grosso ", "Mato Grosso do Sul", "Minas Gerais ", "Pará ", "Paraíba ", "Paraná", "Pernambuco ", "Piauí", "Rio de Janeiro", "Rio Grande do Norte ", "Rio Grande do Sul", "Rondônia", "Roraima ", "Santa Catarina ", "São Paulo", "Sergipe", "Tocantins" }));
         cboxEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cboxEstado.setEnabled(false);
         cboxEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -117,15 +117,25 @@ public class GUIinstrutor extends javax.swing.JFrame {
             }
         });
 
-        cboxEstCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxEstCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro(a)", "Casado(a)", "Viuvo(a)", "Divorciado(a)" }));
         cboxEstCiv.setEnabled(false);
 
+        try {
+            ftfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ftfCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ftfCPFActionPerformed(evt);
             }
         });
 
+        try {
+            ftfCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ftfCEP.setEnabled(false);
         ftfCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +143,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
             }
         });
 
+        try {
+            ftfTelRes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ftfTelRes.setEnabled(false);
         ftfTelRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +155,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
             }
         });
 
+        try {
+            ftfCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ftfCel.setEnabled(false);
         ftfCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +167,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
             }
         });
 
-        ftfDatNas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        try {
+            ftfDatNas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ftfDatNas.setToolTipText("");
         ftfDatNas.setEnabled(false);
         ftfDatNas.addActionListener(new java.awt.event.ActionListener() {
@@ -215,6 +239,11 @@ public class GUIinstrutor extends javax.swing.JFrame {
 
         txtfAreaAtu.setEnabled(false);
 
+        try {
+            ftfRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ftfRG.setEnabled(false);
         ftfRG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -321,7 +350,7 @@ public class GUIinstrutor extends javax.swing.JFrame {
                                             .addComponent(ftfRG, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cboxEstCiv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboxEstCiv, 0, 1, Short.MAX_VALUE)
                                     .addComponent(ftfDatNas))))
                         .addGap(31, 31, 31))))
         );
