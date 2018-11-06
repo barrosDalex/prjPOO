@@ -51,6 +51,7 @@ public class GUITurma extends javax.swing.JFrame {
         jLabel12.setText("jLabel12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Turma");
 
         jLabel2.setText("Sigla da turma");
 

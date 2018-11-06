@@ -68,6 +68,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
         ftfRG = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Instrutor");
         setSize(new java.awt.Dimension(3, 3));
 
         labCPF.setText("CPF");

@@ -66,6 +66,7 @@ public class GUIAluno extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Aluno");
 
         jLabel1.setText("CPF");
 
