@@ -202,6 +202,11 @@ public class GUIInstrutor extends javax.swing.JFrame {
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         txtfNome.setEnabled(false);
 
@@ -486,6 +491,11 @@ public class GUIInstrutor extends javax.swing.JFrame {
     private void ftfRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfRGActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ftfRGActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
