@@ -9,12 +9,12 @@ package fatec.poo.view;
  *
  * @author Arex de Barros
  */
-public class GUIinstrutor extends javax.swing.JFrame {
+public class GUIInstrutor extends javax.swing.JFrame {
 
     /**
      * Creates new form GUIinstrutor
      */
-    public GUIinstrutor() {
+    public GUIInstrutor() {
         initComponents();
     }
 
@@ -504,20 +504,21 @@ public class GUIinstrutor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIinstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIInstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIinstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIInstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIinstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIInstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIinstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIInstrutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIinstrutor().setVisible(true);
+                new GUIInstrutor().setVisible(true);
             }
         });
     }
