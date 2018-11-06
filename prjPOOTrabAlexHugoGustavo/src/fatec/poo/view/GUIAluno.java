@@ -67,6 +67,8 @@ public class GUIAluno extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        setTitle("Cadastrar Aluno");
+      
         jLabel1.setText("CPF");
 
         jLabel2.setText("Nome");
@@ -99,7 +101,13 @@ public class GUIAluno extends javax.swing.JFrame {
         btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
-        btnSair.setText("Sair");
+
+      btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         txtfEmail.setEnabled(false);
 
@@ -343,6 +351,10 @@ public class GUIAluno extends javax.swing.JFrame {
     private void txtfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNomeActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
