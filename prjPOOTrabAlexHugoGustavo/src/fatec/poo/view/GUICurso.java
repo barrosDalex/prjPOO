@@ -71,6 +71,11 @@ public class GUICurso extends javax.swing.JFrame {
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         labSigCur.setText("Sigla Curso");
 
@@ -206,6 +211,10 @@ public class GUICurso extends javax.swing.JFrame {
     private void txtfProgCurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfProgCurActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfProgCurActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
