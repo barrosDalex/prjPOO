@@ -66,8 +66,9 @@ public class GUIAluno extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastrar Aluno");
 
+        setTitle("Cadastrar Aluno");
+      
         jLabel1.setText("CPF");
 
         jLabel2.setText("Nome");
@@ -100,7 +101,8 @@ public class GUIAluno extends javax.swing.JFrame {
         btnExcluir.setEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
-        btnSair.setText("Sair");
+
+      btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
