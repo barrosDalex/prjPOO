@@ -211,7 +211,6 @@ public class GUITurma extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**
