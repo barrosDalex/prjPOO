@@ -52,7 +52,8 @@ public class DaoTurma {
             
         ps.execute();
 
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
              System.out.println(ex.toString());   
         }
     }
@@ -90,6 +91,5 @@ public class DaoTurma {
              System.out.println(ex.toString());   
         }
     }
-        
-    
+  
 }
