@@ -5,7 +5,7 @@ public class Aluno extends Pessoa{
     private String Escolaridade;
     private Matricula matricula;
     
-    Aluno( String cpf, String nome){
+    public Aluno( String cpf, String nome){
         super(cpf, nome);
     }
 

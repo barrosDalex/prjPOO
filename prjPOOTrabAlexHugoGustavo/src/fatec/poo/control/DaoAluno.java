@@ -82,9 +82,30 @@ public class DaoAluno {
         } catch (SQLException ex) { 
              System.out.println(ex.toString());   
         }
-        
         return p;
     }
+    
+    public Aluno consultarAluno(String cpf){
+    
+    Aluno a = null;
+    PreparedStatement ps = null;
+    
+    try {
+        ps = conn.prepareStatement("SELECT cpfAluno, nome, escolaridade FROM tb_Aluno INNER JOIN ");
+        ps.setString(1, cpf);
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs.next() == true){
+            a = new Aluno(cpf, rs.getString(2));
+            a.setEscolaridade(rs.getString(3));
+        }
+        
+        
+    } catch (SQLException ex){
+        System.out.println(ex.toString());
+    }
+    return a;
+}
     
     public void Excluir(String cpf){
         PreparedStatement ps = null;
