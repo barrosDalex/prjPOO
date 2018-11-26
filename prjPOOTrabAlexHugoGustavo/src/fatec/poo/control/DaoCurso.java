@@ -41,8 +41,16 @@ public class DaoCurso {
                     + "valor = ?, " + "dtVigencia = ?, " +"valorHoraInstrutor = ?, " +"programa = ?" +                 
                     "where  siglaCurso = ?");
         
+            ps.setString(1, curso.getNome());
+            ps.setString(2, Integer.toString(curso.getCargaHoraria()) );
+            ps.setString(3, Double.toString(curso.getValor()) );
+            ps.setString(4, curso.getDataVigencia());
+            ps.setString(5, Double.toString(curso.getValorHoraInstrutor()) );
+            ps.setString(6, curso.getPrograma());
+            
             ps.execute();
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
              System.out.println(ex.toString());   
         }
     }

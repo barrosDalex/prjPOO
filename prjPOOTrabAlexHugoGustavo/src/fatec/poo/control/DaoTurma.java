@@ -39,11 +39,17 @@ public class DaoTurma {
     public void alterar(Turma turma) {
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("UPDATE tb_Turma set siglaTurma = ?, " +
-                   "dtInicio = ?, " + " dtTermino = ?, " +  "periodo = ?, "
-                       + "qtdeVagas = ?, " + "observacoes = ?, " + "siglaCurso = ?"
-                                                 +"where siglaTurma = ?");
+            ps = conn.prepareStatement("UPDATE tb_Turma set dtInicio = ?, " + 
+                  " dtTermino = ?, " +  "periodo = ?, " + "qtdeVagas = ?, " +
+             "observacoes = ?, " + "siglaCurso = ?" + "where siglaTurma = ?");
 
+            ps.setString(1, turma.getDataInicio());
+            ps.setString(2, turma.getDataTermino());
+            ps.setString(3, turma.getPeriodo());
+            ps.setString(4, Integer.toString( turma.getQtdVagas()) );
+            ps.setString(5, turma.getObservacoes());
+            ps.setString(6, turma.getCurso().getSigla() );    
+            
         ps.execute();
 
         } catch (SQLException ex) {
