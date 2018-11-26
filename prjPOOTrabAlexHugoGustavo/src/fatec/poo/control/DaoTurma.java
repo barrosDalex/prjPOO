@@ -1,11 +1,14 @@
 package fatec.poo.control;
 
+import fatec.poo.model.Instrutor;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
 import fatec.poo.model.Turma;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DaoTurma {
     
@@ -46,9 +49,9 @@ public class DaoTurma {
             ps.setString(1, turma.getDataInicio());
             ps.setString(2, turma.getDataTermino());
             ps.setString(3, turma.getPeriodo());
-            ps.setString(4, Integer.toString( turma.getQtdVagas()) );
+            ps.setInt(4, turma.getQtdVagas());
             ps.setString(5, turma.getObservacoes());
-            ps.setString(6, turma.getCurso().getSigla() );    
+            ps.setString(6, turma.getCurso().getSigla());    
             
         ps.execute();
 
@@ -67,13 +70,16 @@ public class DaoTurma {
                                                  "siglaTurma = ?");
             
             ps.setString(1, sigla);
-            
-            
-            
+                      
             ResultSet rs = ps.executeQuery();
            
             if (rs.next() == true) {
                 t = new Turma (sigla, rs.getString("observacoes"));
+                t.setDataInicio(rs.getString("dtInicio"));
+                t.setDataTermino(rs.getString("dtTermino"));
+                t.setPeriodo(rs.getString("periodo"));
+                t.setQtdVagas(rs.getInt("qtdeVagas"));
+                t.setObservacoes(rs.getString("observacoes"));
             }
         }
         catch (SQLException ex) { 
