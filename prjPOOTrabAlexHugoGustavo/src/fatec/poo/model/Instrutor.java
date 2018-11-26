@@ -29,4 +29,16 @@ public class Instrutor extends Pessoa{
     public void setTurma(Turma t){
         turmas.add(t);
     }
+
+    public String getFormacao() {
+        return Formacao;
+    }
+
+    public String getAreaAtuacao() {
+        return AreaAtuacao;
+    }
+
+    public ArrayList<Turma> getTurmas() {
+        return turmas;
+    }
 }
