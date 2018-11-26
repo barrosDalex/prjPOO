@@ -17,6 +17,14 @@ public class Aluno extends Pessoa{
         this.matricula = m;
         m.setAluno(this);
     }
+
+    public String getEscolaridade() {
+        return Escolaridade;
+    }
+
+    public Matricula getMatricula() {
+        return matricula;
+    }
                    
     public void setMatricula(Matricula m){
         this.matricula = m;
