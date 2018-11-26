@@ -3,6 +3,62 @@ package fatec.poo.model;
 import java.util.ArrayList;
 
 public class Curso {
+
+    /**
+     * @return the Sigla
+     */
+    public String getSigla() {
+        return Sigla;
+    }
+
+    /**
+     * @return the Nome
+     */
+    public String getNome() {
+        return Nome;
+    }
+
+    /**
+     * @return the CargaHoraria
+     */
+    public int getCargaHoraria() {
+        return CargaHoraria;
+    }
+
+    /**
+     * @return the Valor
+     */
+    public double getValor() {
+        return Valor;
+    }
+
+    /**
+     * @return the DataVigencia
+     */
+    public String getDataVigencia() {
+        return DataVigencia;
+    }
+
+    /**
+     * @return the ValorHoraInstrutor
+     */
+    public double getValorHoraInstrutor() {
+        return ValorHoraInstrutor;
+    }
+
+    /**
+     * @return the Programa
+     */
+    public String getPrograma() {
+        return Programa;
+    }
+
+    /**
+     * @return the Turmas
+     */
+    public ArrayList<Turma> getTurmas() {
+        return Turmas;
+    }
     private String Sigla;
     private String Nome;
     private int CargaHoraria;
@@ -40,11 +96,11 @@ public class Curso {
     }
     
     public void addTurma(Turma t){
-        Turmas.add(t);
+        getTurmas().add(t);
         t.setCurso(this);
     }
     
     public void setTurma(Turma t){
-        Turmas.add(t);
+        getTurmas().add(t);
     }
 }
