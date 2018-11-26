@@ -11,7 +11,7 @@ public class DaoTurma {
     
     private Connection conn;
     
-    DaoTurma(Connection conn) {
+    public DaoTurma(Connection conn) {
          this.conn = conn;
     }
     
@@ -67,6 +67,9 @@ public class DaoTurma {
                                                  "siglaTurma = ?");
             
             ps.setString(1, sigla);
+            
+            
+            
             ResultSet rs = ps.executeQuery();
            
             if (rs.next() == true) {

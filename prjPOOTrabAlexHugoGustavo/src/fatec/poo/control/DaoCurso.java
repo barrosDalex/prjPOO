@@ -11,7 +11,7 @@ public class DaoCurso {
     
     private Connection conn;
      
-    DaoCurso(Connection conn) {
+    public DaoCurso(Connection conn) {
          this.conn = conn;
     }
        

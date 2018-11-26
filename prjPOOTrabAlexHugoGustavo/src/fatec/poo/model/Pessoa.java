@@ -18,7 +18,7 @@ public class Pessoa {
     private String CPF;
     private String Email;
     
-    Pessoa( String cpf, String nome){
+    public Pessoa( String cpf, String nome){
         this.Nome = nome;
         this.CPF = cpf;
     }
