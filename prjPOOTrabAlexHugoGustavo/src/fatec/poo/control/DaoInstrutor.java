@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
-import fatec.poo.model.Pessoa;
+import fatec.poo.control.DaoInstrutor;
 import fatec.poo.model.Instrutor;
 
 public class DaoInstrutor {
@@ -15,31 +15,9 @@ public class DaoInstrutor {
         this.conn = conn;
     }
     
-    public void inserir(Pessoa pessoa, Instrutor instrutor) {
+    public void inserir(Instrutor instrutor) {
         PreparedStatement ps = null;
-        try {
-            ps = conn.prepareStatement("INSERT INTO tb_Pessoa VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setString(1, pessoa.getNome());
-            ps.setString(2, pessoa.getDataNasc());
-            ps.setString(3, pessoa.getEndereco());
-            ps.setString(4, Integer.toString(pessoa.getNumero()));
-            ps.setString(5, pessoa.getBairro());
-            ps.setString(6, pessoa.getCidade());
-            ps.setString(7, pessoa.getEstado());
-            ps.setString(8, pessoa.getCEP());
-            ps.setString(9, pessoa.getTelefone());
-            ps.setString(10, pessoa.getCelular());
-            ps.setString(11, pessoa.getSexo());
-            ps.setString(12, pessoa.getEstadoCivil());
-            ps.setString(13, pessoa.getRG());
-            ps.setString(14, pessoa.getCPF());
-            ps.setString(15, pessoa.getEmail());
-            
-            ps.execute();
-        } catch (SQLException ex) {
-             System.out.println(ex.toString());
-        }
-             
+        
         try {
             ps = conn.prepareStatement("INSERT INTO tb_Instrutor VALUES(?,?,?)");
             ps.setString(1, instrutor.getCPF());
@@ -52,14 +30,16 @@ public class DaoInstrutor {
         }
     }
     
-    public void alterar(Pessoa pessoa, Instrutor instrutor) {
+    public void alterar(Instrutor instrutor) {
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("UPDATE tbdepartamento set Nome_Dep = ?" +
-                                                 "where Sigla_Dep = ?");
+            ps = conn.prepareStatement("UPDATE tb_Instrutor SET formacao = ?," +
+                                                "SET areaAtuacao = ?" +
+                                                 "where cpf = ?");
             
-            ps.setString(1, departamento.getNome());
-            ps.setString(2, departamento.getSigla());
+            ps.setString(1, instrutor.getFormacao());
+            ps.setString(2, instrutor.getAreaAtuacao());
+            ps.setString(3, instrutor.getCPF());
            
             ps.execute();
         } catch (SQLException ex) {
@@ -87,5 +67,18 @@ public class DaoInstrutor {
         }
         
         return i;
+    }
+    
+    public void excluir(Instrutor instrutor) {
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement("DELETE FROM tb_Instrutor WHERE cpf = ?");
+            
+            ps.setString(1, instrutor.getCPF());
+                      
+            ps.execute();
+        } catch (SQLException ex) {
+             System.out.println(ex.toString());   
+        }
     }
 }
