@@ -5,6 +5,10 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoInstrutor;
+import fatec.poo.control.DaoPessoa;
+
 /**
  *
  * @author Gorom
@@ -45,6 +49,17 @@ public class GUIMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trabalho POO");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         menCadastros.setText("Cadastros");
 
@@ -136,6 +151,16 @@ public class GUIMenu extends javax.swing.JFrame {
     private void mitnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitnSairActionPerformed
         dispose();
     }//GEN-LAST:event_mitnSairActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
