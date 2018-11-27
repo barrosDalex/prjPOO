@@ -5,7 +5,7 @@ public class Aluno extends Pessoa{
     private String Escolaridade;
     private Matricula matricula;
     
-    Aluno( String cpf, String nome){
+    public Aluno( String cpf, String nome){
         super(cpf, nome);
     }
 
@@ -16,6 +16,14 @@ public class Aluno extends Pessoa{
     public void addMatricula(Matricula m){
         this.matricula = m;
         m.setAluno(this);
+    }
+
+    public String getEscolaridade() {
+        return Escolaridade;
+    }
+
+    public Matricula getMatricula() {
+        return matricula;
     }
                    
     public void setMatricula(Matricula m){
