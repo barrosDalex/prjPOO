@@ -166,7 +166,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
         });
 
         try {
-            ftfCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            ftfCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-#####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -219,6 +219,11 @@ public class GUIInstrutor extends javax.swing.JFrame {
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setEnabled(false);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -485,7 +490,53 @@ public class GUIInstrutor extends javax.swing.JFrame {
     }//GEN-LAST:event_ftfDatNasActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
-        // TODO add your handling code here:
+        pessoa = new Pessoa(cpf, txtfNome.getText());
+        instrutor = new Instrutor(cpf, txtfNome.getText());
+        
+        pessoa.setCPF(cpf);
+        pessoa.setNome(txtfNome.getText());
+        pessoa.setDataNasc(ftfDatNas.getText());
+        pessoa.setEndereco(txtfEnd.getText());
+        pessoa.setNumero(Integer.parseInt(txtfNum.getText()));
+        pessoa.setBairro(txtfBairro.getText());
+        pessoa.setCidade(txtfCidade.getText());
+        pessoa.setEstado(cboxEstado.getSelectedItem().toString());
+        pessoa.setCEP(ftfCEP.getText().replaceAll("[-]", ""));
+        pessoa.setTelefone(ftfTelRes.getText().replaceAll("[(,),-]", ""));
+        pessoa.setCelular(ftfCel.getText().replaceAll("[(,),-]", ""));
+        pessoa.setSexo(cboxSexo.getSelectedItem().toString());
+        pessoa.setEstadoCivil(cboxEstCiv.getSelectedItem().toString());
+        pessoa.setRG(ftfRG.getText().replaceAll("[.,-]", ""));
+        pessoa.setEmail(txtfEmail.getText());
+           
+        instrutor.setCPF(cpf);
+        instrutor.setFormacao(txtfForm.getText());
+        instrutor.setAreaAtuacao(txtfAreaAtu.getText());
+           
+        
+        daoPessoa.inserir(pessoa);
+        daoInstrutor.inserir(instrutor);
+        
+        ftfCPF.setText("");
+        txtfNome.setText("");
+        cboxEstCiv.setSelectedIndex(0x0);
+        txtfEnd.setText("");
+        ftfDatNas.setText("");
+        cboxSexo.setSelectedIndex(0x0);
+        txtfNum.setText("");
+        txtfBairro.setText("");
+        ftfCEP.setText("");
+        txtfCidade.setText("");
+        cboxEstado.setSelectedIndex(0x0);
+        ftfRG.setText("");
+        txtfForm.setText("");
+        txtfEmail.setText("");
+        ftfTelRes.setText("");
+        ftfCel.setText("");
+        txtfAreaAtu.setText("");
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void cboxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxEstadoActionPerformed
@@ -567,7 +618,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
                 txtfNome.setText(pessoa.getNome());
                 cboxEstCiv.setSelectedItem(pessoa.getEstadoCivil());
                 txtfEnd.setText(pessoa.getEndereco());
-                ftfDatNas.setText(pessoa.getDataNasc());
+                ftfDatNas.setText(pessoa.getDataNasc().replaceAll("[/]", ""));
                 cboxSexo.setSelectedItem(pessoa.getSexo());
                 txtfNum.setText(Integer.toString(pessoa.getNumero()));
                 txtfBairro.setText(pessoa.getBairro());
@@ -602,7 +653,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
            pessoa.setBairro(txtfBairro.getText());
            pessoa.setCidade(txtfCidade.getText());
            pessoa.setEstado(cboxEstado.getSelectedItem().toString());
-           pessoa.setCEP(ftfCEP.getText());
+           pessoa.setCEP(ftfCEP.getText().replaceAll("[-]", ""));
            pessoa.setTelefone(ftfTelRes.getText().replaceAll("[(,),-]", ""));
            pessoa.setCelular(ftfCel.getText().replaceAll("[(,),-]", ""));
            pessoa.setSexo(cboxSexo.getSelectedItem().toString());
@@ -618,6 +669,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
            daoInstrutor.alterar(instrutor);
         }
         
+        ftfCPF.setText("");
         txtfNome.setText("");
         cboxEstCiv.setSelectedIndex(0x0);
         txtfEnd.setText("");
@@ -659,6 +711,54 @@ public class GUIInstrutor extends javax.swing.JFrame {
         btnAlterar.setEnabled(false);
         btnExcluir.setEnabled(false);
     }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
+            daoInstrutor.excluir(instrutor);
+        }
+        
+        ftfCPF.setText("");
+        txtfNome.setText("");
+        cboxEstCiv.setSelectedIndex(0x0);
+        txtfEnd.setText("");
+        ftfDatNas.setText("");
+        cboxSexo.setSelectedIndex(0x0);
+        txtfNum.setText("");
+        txtfBairro.setText("");
+        ftfCEP.setText("");
+        txtfCidade.setText("");
+        cboxEstado.setSelectedIndex(0x0);
+        ftfRG.setText("");
+        txtfForm.setText("");
+        txtfEmail.setText("");
+        ftfTelRes.setText("");
+        ftfCel.setText("");
+        txtfAreaAtu.setText("");
+             
+        ftfCPF.setEnabled(true);
+        txtfNome.setEnabled(false);
+        cboxEstCiv.setEnabled(false);
+        txtfEnd.setEnabled(false);
+        ftfDatNas.setEnabled(false);
+        cboxSexo.setEnabled(false);
+        txtfNum.setEnabled(false);
+        txtfBairro.setEnabled(false);
+        ftfCEP.setEnabled(false);
+        txtfCidade.setEnabled(false);
+        cboxEstado.setEnabled(false);
+        ftfRG.setEnabled(false);
+        txtfForm.setEnabled(false);
+        txtfEmail.setEnabled(false);
+        ftfTelRes.setEnabled(false);
+        ftfCel.setEnabled(false);
+        txtfAreaAtu.setEnabled(false);
+        ftfCPF.requestFocus();
+        
+        btnConsultar.setEnabled(true);
+        btnInserir.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
