@@ -29,13 +29,13 @@ public class Conexao {
         
 	   if (connection == null){
 	      try {
-                 Class.forName(driver);
+                Class.forName(driver);
             
-                 connection = DriverManager.getConnection(connectionString, usuario, senha);               
-	         System.out.println("Conexao OK");
+                connection = DriverManager.getConnection(connectionString, usuario, senha);               
+	        System.out.println("Conexao OK");
               }catch (Exception ex) {
-                  System.out.println("Falha na Conexao");
-                  System.out.println(ex.toString() + ex.getMessage());
+                System.out.println("Falha na Conexao");
+                System.out.println(ex.toString() + ex.getMessage());
           }
 	   }
        
@@ -45,9 +45,9 @@ public class Conexao {
    public void fecharConexao(){
         if (connection != null){
 	   try {
-                  connection.close();
+                connection.close();
            } catch (SQLException ex) {
-                   System.out.println(ex.toString());    
+                System.out.println(ex.toString());    
            }
         }   
     }
