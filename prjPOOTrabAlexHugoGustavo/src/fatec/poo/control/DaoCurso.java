@@ -6,12 +6,15 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 
 import fatec.poo.model.Curso;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 public class DaoCurso {
 
     private Connection conn;
+    
+    ArrayList cursos = new ArrayList();    
 
     public DaoCurso(Connection conn) {
         this.conn = conn;
@@ -94,6 +97,23 @@ public class DaoCurso {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
+    }
+    
+    public ArrayList<String> ListarSiglas(){
+        PreparedStatement ps = null;
+        try{
+            ps = conn.prepareStatement("SELECT * from tb_Curso");
+            
+            ResultSet rs = ps.executeQuery();
+                while (rs.next()){
+                 cursos.add(rs.getString("siglaCurso"));
+                }            
+        }
+        catch (SQLException ex){
+            System.out.println(ex.toString());
+        }
+                
+        return null;        
     }
 
 }

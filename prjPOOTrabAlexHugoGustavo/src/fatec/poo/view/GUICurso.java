@@ -258,9 +258,7 @@ public class GUICurso extends javax.swing.JFrame {
             curso.setValor( Double.parseDouble(txtfValCur.getText()));
             curso.setPrograma(txtfProgCur.getText());
             curso.setDataVigencia( ftfDatVig.getText().replaceAll("([{//}])", ""));
-            curso.setValorHoraInstrutor(Double.parseDouble(txtfValIns.getText()));
-            
-            daoCurso.inserir(curso);            
+            curso.setValorHoraInstrutor(Double.parseDouble(txtfValIns.getText()));         
         }
         else{
             btnConsultar.setEnabled(false);
