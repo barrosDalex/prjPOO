@@ -1,10 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.model.Instrutor;
+import fatec.poo.model.Pessoa;
+import fatec.poo.control.DaoInstrutor;
+import fatec.poo.control.DaoPessoa;
 /**
  *
  * @author Arex de Barros
@@ -70,6 +70,14 @@ public class GUIInstrutor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Instrutor");
         setSize(new java.awt.Dimension(3, 3));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         labCPF.setText("CPF");
 
@@ -183,6 +191,11 @@ public class GUIInstrutor extends javax.swing.JFrame {
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
@@ -342,7 +355,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(labCPF)
                                         .addGap(18, 18, 18)
-                                        .addComponent(ftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(ftfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(labCidade)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -497,6 +510,75 @@ public class GUIInstrutor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conexao = new Conexao("Gorom","Abacabb87");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        daoInstrutor = new DaoInstrutor(conexao.conectar());
+        daoPessoa = new DaoPessoa(conexao.conectar());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        conexao.fecharConexao();
+        dispose();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        pessoa = null;
+        instrutor = null;
+        pessoa = daoPessoa.consultar(ftfCPF.getText().replaceAll("[.,-]", ""));
+        instrutor = daoInstrutor.consultar(ftfCPF.getText().replaceAll("[.,-]", ""));
+        
+        if(pessoa == null){
+            ftfCPF.setEnabled(false);
+            txtfNome.setEnabled(true);
+            cboxEstCiv.setEnabled(true);
+            txtfEnd.setEnabled(true);
+            ftfDatNas.setEnabled(true);
+            cboxSexo.setEnabled(true);
+            txtfNum.setEnabled(true);
+            txtfBairro.setEnabled(true);
+            ftfCEP.setEnabled(true);
+            txtfCidade.setEnabled(true);
+            cboxEstado.setEnabled(true);
+            ftfRG.setEnabled(true);
+            txtfForm.setEnabled(true);
+            txtfEmail.setEnabled(true);
+            ftfTelRes.setEnabled(true);
+            ftfCel.setEnabled(true);
+            txtfAreaAtu.setEnabled(true);
+            txtfNome.requestFocus();
+            
+            btnConsultar.setEnabled(false);
+            btnAlterar.setEnabled(false);
+            btnExcluir.setEnabled(false);
+            btnInserir.setEnabled(true);
+        }
+        else{
+            txtfNome.setText(pessoa.getNome());
+            cboxEstCiv.setSelectedItem(pessoa.getEstadoCivil());
+            txtfEnd.setText(pessoa.getEndereco());
+            ftfDatNas.setText(pessoa.getDataNasc());
+            cboxSexo.setSelectedItem(pessoa.getSexo());
+            txtfNum.setText(Integer.toString(pessoa.getNumero()));
+            txtfBairro.setText(pessoa.getBairro());
+            ftfCEP.setText(pessoa.getCEP());
+            txtfCidade.setText(pessoa.getCidade());
+            cboxEstado.setSelectedItem(pessoa.getEstado());
+            ftfRG.setText(pessoa.getRG());
+            txtfForm.setText(instrutor.getFormacao());
+            txtfEmail.setText(pessoa.getEmail());
+            ftfTelRes.setText(pessoa.getTelefone());
+            ftfCel.setText(pessoa.getCelular());
+            txtfAreaAtu.setText(instrutor.getAreaAtuacao());
+             
+            btnConsultar.setEnabled(false);
+            btnInserir.setEnabled(false);
+            btnAlterar.setEnabled(true);
+            btnExcluir.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -574,4 +656,9 @@ public class GUIInstrutor extends javax.swing.JFrame {
     private javax.swing.JTextField txtfNome;
     private javax.swing.JTextField txtfNum;
     // End of variables declaration//GEN-END:variables
+    private Conexao conexao;
+    private DaoInstrutor daoInstrutor;
+    private DaoPessoa daoPessoa;
+    private Pessoa pessoa;
+    private Instrutor instrutor;
 }
