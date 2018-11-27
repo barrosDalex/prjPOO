@@ -233,6 +233,7 @@ public class GUITurma extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 

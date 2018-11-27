@@ -288,7 +288,7 @@ public class GUICurso extends javax.swing.JFrame {
         daoCurso = new DaoCurso(conexao.conectar());
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
-
+       
     /**
      * @param args the command line arguments
      */
