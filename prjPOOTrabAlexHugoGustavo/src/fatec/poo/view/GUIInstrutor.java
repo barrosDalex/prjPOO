@@ -535,6 +535,25 @@ public class GUIInstrutor extends javax.swing.JFrame {
         ftfCel.setText("");
         txtfAreaAtu.setText("");
         
+        ftfCPF.setEnabled(true);
+        txtfNome.setEnabled(false);
+        cboxEstCiv.setEnabled(false);
+        txtfEnd.setEnabled(false);
+        ftfDatNas.setEnabled(false);
+        cboxSexo.setEnabled(false);
+        txtfNum.setEnabled(false);
+        txtfBairro.setEnabled(false);
+        ftfCEP.setEnabled(false);
+        txtfCidade.setEnabled(false);
+        cboxEstado.setEnabled(false);
+        ftfRG.setEnabled(false);
+        txtfForm.setEnabled(false);
+        txtfEmail.setEnabled(false);
+        ftfTelRes.setEnabled(false);
+        ftfCel.setEnabled(false);
+        txtfAreaAtu.setEnabled(false);
+        ftfCPF.requestFocus();
+        
         btnConsultar.setEnabled(true);
         btnInserir.setEnabled(false);
     }//GEN-LAST:event_btnInserirActionPerformed
@@ -590,25 +609,6 @@ public class GUIInstrutor extends javax.swing.JFrame {
             instrutor = daoInstrutor.consultar(cpf);
         
             if(instrutor == null){
-                ftfCPF.setEnabled(false);
-                txtfNome.setEnabled(true);
-                cboxEstCiv.setEnabled(true);
-                txtfEnd.setEnabled(true);
-                ftfDatNas.setEnabled(true);
-                cboxSexo.setEnabled(true);
-                txtfNum.setEnabled(true);
-                txtfBairro.setEnabled(true);
-                ftfCEP.setEnabled(true);
-                txtfCidade.setEnabled(true);
-                cboxEstado.setEnabled(true);
-                ftfRG.setEnabled(true);
-                txtfForm.setEnabled(true);
-                txtfEmail.setEnabled(true);
-                ftfTelRes.setEnabled(true);
-                ftfCel.setEnabled(true);
-                txtfAreaAtu.setEnabled(true);
-                txtfNome.requestFocus();
-            
                 btnConsultar.setEnabled(false);
                 btnAlterar.setEnabled(false);
                 btnExcluir.setEnabled(false);
@@ -637,6 +637,25 @@ public class GUIInstrutor extends javax.swing.JFrame {
                 btnAlterar.setEnabled(true);
                 btnExcluir.setEnabled(true);
             }
+            
+            ftfCPF.setEnabled(false);
+                txtfNome.setEnabled(true);
+                cboxEstCiv.setEnabled(true);
+                txtfEnd.setEnabled(true);
+                ftfDatNas.setEnabled(true);
+                cboxSexo.setEnabled(true);
+                txtfNum.setEnabled(true);
+                txtfBairro.setEnabled(true);
+                ftfCEP.setEnabled(true);
+                txtfCidade.setEnabled(true);
+                cboxEstado.setEnabled(true);
+                ftfRG.setEnabled(true);
+                txtfForm.setEnabled(true);
+                txtfEmail.setEnabled(true);
+                ftfTelRes.setEnabled(true);
+                ftfCel.setEnabled(true);
+                txtfAreaAtu.setEnabled(true);
+                txtfNome.requestFocus();
         }
         else{
             JOptionPane.showMessageDialog(null, "CPF inserido não é válido.");
