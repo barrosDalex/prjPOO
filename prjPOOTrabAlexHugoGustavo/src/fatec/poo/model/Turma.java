@@ -12,6 +12,76 @@ import java.util.ArrayList;
  * @author Hugo
  */
 public class Turma {
+
+    /**
+     * @return the SiglaTurma
+     */
+    public String getSiglaTurma() {
+        return SiglaTurma;
+    }
+
+    /**
+     * @return the Descricao
+     */
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    /**
+     * @return the DataInicio
+     */
+    public String getDataInicio() {
+        return DataInicio;
+    }
+
+    /**
+     * @return the DataTermino
+     */
+    public String getDataTermino() {
+        return DataTermino;
+    }
+
+    /**
+     * @return the Periodo
+     */
+    public String getPeriodo() {
+        return Periodo;
+    }
+
+    /**
+     * @return the QtdVagas
+     */
+    public int getQtdVagas() {
+        return QtdVagas;
+    }
+
+    /**
+     * @return the Observacoes
+     */
+    public String getObservacoes() {
+        return Observacoes;
+    }
+
+    /**
+     * @return the Curso
+     */
+    public Curso getCurso() {
+        return Curso;
+    }
+
+    /**
+     * @return the instrutor
+     */
+    public Instrutor getInstrutor() {
+        return instrutor;
+    }
+
+    /**
+     * @return the Matriculas
+     */
+    public ArrayList<Matricula> getMatriculas() {
+        return Matriculas;
+    }
     private String SiglaTurma;
     private String Descricao;
     private String DataInicio;
@@ -54,7 +124,7 @@ public class Turma {
     }
     
     public void setMatricula(Matricula m){
-        Matriculas.add(m);
+        getMatriculas().add(m);
     }
       
     public void emitirListaFrequencia(){
@@ -70,7 +140,7 @@ public class Turma {
     }
     
     public void addMatricula(Matricula m){
-        Matriculas.add(m);
+        getMatriculas().add(m);
         m.setTurma(this);
     }
     

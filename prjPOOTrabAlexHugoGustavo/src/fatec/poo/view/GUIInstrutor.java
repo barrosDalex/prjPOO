@@ -495,6 +495,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**

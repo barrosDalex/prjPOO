@@ -5,6 +5,14 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoCurso;
+import fatec.poo.control.DaoTurma;
+import fatec.poo.model.Curso;
+import fatec.poo.model.Turma;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  *
  * @author Gustavo
@@ -51,8 +59,12 @@ public class GUITurma extends javax.swing.JFrame {
         jLabel12.setText("jLabel12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         setTitle("Cadastrar Turma");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel2.setText("Sigla da turma");
 
@@ -70,6 +82,11 @@ public class GUITurma extends javax.swing.JFrame {
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
@@ -85,7 +102,6 @@ public class GUITurma extends javax.swing.JFrame {
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
-      
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -108,6 +124,11 @@ public class GUITurma extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tftDtIni.setEnabled(false);
+        tftDtIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tftDtIniActionPerformed(evt);
+            }
+        });
 
         cboxPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde", "Noite" }));
         cboxPeriodo.setEnabled(false);
@@ -212,8 +233,71 @@ public class GUITurma extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void tftDtIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tftDtIniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tftDtIniActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conexao = new Conexao("alex","alex1234");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");      
+        
+        cboxCurso.removeAllItems();
+        cboxCurso.addItem("");
+        
+        daoCurso = new DaoCurso(conexao.conectar());
+        /*
+        ArrayList<String> cursos = daoCurso.ListarSiglas();
+        
+       for(int x = 0; x < cursos.size(); x++){
+           cboxCurso.addItem(cursos.get(x));
+       }
+       */
+       cboxCurso.setEnabled(true);
+       txtfSiglaCurs.setEnabled(true);
+                   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        turma = null;
+        
+        turma = daoTurma.consultar( txtfSiglaCurs.getText());
+        
+        if (turma == null){
+            btnConsultar.setEnabled(false);
+            btnInserir.setEnabled(true);
+            
+            txtfSiglaCurs.setEnabled(false);
+            
+            txtfNome.requestFocus();
+            
+            txtfNome.setEnabled(true);
+            txtfQtdeVag.setEnabled(true);
+            tftDtIni.setEnabled(true);
+            ftfDtTerm.setEnabled(true);
+        }
+        else{
+            txtfNome.setText( turma.getDescricao() );
+            txtfQtdeVag.setText( String.valueOf( turma.getQtdVagas()));
+            tftDtIni.setText( turma.getDataInicio() );
+            ftfDtTerm.setText( turma.getDataTermino() );
+            
+            btnConsultar.setEnabled(false);
+            btnAlterar.setEnabled(true);
+            btnExcluir.setEnabled(true);
+            
+            txtfSiglaCurs.setEnabled(false);
+            txtfNome.requestFocus();
+        }
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,4 +356,9 @@ public class GUITurma extends javax.swing.JFrame {
     private javax.swing.JTextField txtfQtdeVag;
     private javax.swing.JTextField txtfSiglaCurs;
     // End of variables declaration//GEN-END:variables
+    private Conexao conexao;
+    private DaoCurso daoCurso;
+    private DaoTurma daoTurma;
+    private Curso curso;
+    private Turma turma;
 }

@@ -142,8 +142,8 @@ public class Pessoa {
     public String getEmail() {
         return Email;
     }
-    
-        public static boolean validarCPF(String CPF) {
+   
+    public static boolean validarCPF(String CPF) {
         if (CPF.equals("00000000000") ||
             CPF.equals("11111111111") ||
             CPF.equals("22222222222") || CPF.equals("33333333333") ||
