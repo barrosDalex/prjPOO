@@ -1,7 +1,5 @@
 package fatec.poo.model;
 
-import java.util.InputMismatchException;
-
 public class Pessoa {
 
     private String Nome;
