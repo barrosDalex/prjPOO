@@ -587,7 +587,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conexao = new Conexao("Gorom","Abacabb87");
+        conexao = new Conexao("","");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
         daoInstrutor = new DaoInstrutor(conexao.conectar());
@@ -734,6 +734,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
             daoInstrutor.excluir(instrutor);
+            daoPessoa.excluir(pessoa);
         }
         
         ftfCPF.setText("");
