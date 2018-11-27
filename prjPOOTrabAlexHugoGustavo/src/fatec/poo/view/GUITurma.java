@@ -51,7 +51,6 @@ public class GUITurma extends javax.swing.JFrame {
         jLabel12.setText("jLabel12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         setTitle("Cadastrar Turma");
 
         jLabel2.setText("Sigla da turma");
@@ -85,7 +84,6 @@ public class GUITurma extends javax.swing.JFrame {
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
-      
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -108,6 +106,11 @@ public class GUITurma extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tftDtIni.setEnabled(false);
+        tftDtIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tftDtIniActionPerformed(evt);
+            }
+        });
 
         cboxPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde", "Noite" }));
         cboxPeriodo.setEnabled(false);
@@ -214,6 +217,10 @@ public class GUITurma extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void tftDtIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tftDtIniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tftDtIniActionPerformed
 
     /**
      * @param args the command line arguments

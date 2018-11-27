@@ -24,10 +24,10 @@ public class DaoCurso {
 
             ps.setString(1, curso.getSigla());
             ps.setString(2, curso.getNome());
-            ps.setString(3, Integer.toString(curso.getCargaHoraria()));
-            ps.setString(4, Double.toString(curso.getValor()));
+            ps.setInt(3, curso.getCargaHoraria());
+            ps.setDouble(4, curso.getValor());
             ps.setString(5, curso.getDataVigencia());
-            ps.setString(6, Double.toString(curso.getValorHoraInstrutor()));
+            ps.setDouble(6, curso.getValorHoraInstrutor());
             ps.setString(7, curso.getPrograma());
 
             ps.execute();

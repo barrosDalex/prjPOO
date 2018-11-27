@@ -5,6 +5,11 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoCurso;
+import fatec.poo.model.Curso;
+import java.util.ArrayList;
+
 /**
  *
  * @author Arex de Barros
@@ -49,9 +54,19 @@ public class GUICurso extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Curso");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
@@ -217,6 +232,65 @@ public class GUICurso extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        curso = null;
+        
+        curso = daoCurso.consultar(txtfSigCur.getText());
+        
+        if (curso == null){
+            btnConsultar.setEnabled(false);
+            btnInserir.setEnabled(true);
+            
+            txtfSigCur.setEnabled(false);
+            
+            txtfNomCur.setEnabled(true);
+            txtfCarHor.setEnabled(true);
+            txtfValCur.setEnabled(true);
+            txtfProgCur.setEnabled(true);
+            
+            ftfDatVig.setEnabled(true);
+            txtfValIns.setEnabled(true);
+            
+            txtfNomCur.requestFocus();
+            
+            curso = new Curso(txtfSigCur.getText(), txtfNomCur.getText());
+            curso.setCargaHoraria( Integer.parseInt(txtfCarHor.getText()));
+            curso.setValor( Double.parseDouble(txtfValCur.getText()));
+            curso.setPrograma(txtfProgCur.getText());
+            curso.setDataVigencia( ftfDatVig.getText().replaceAll("([{//}])", ""));
+            curso.setValorHoraInstrutor(Double.parseDouble(txtfValIns.getText()));
+            
+            daoCurso.inserir(curso);            
+        }
+        else{
+            btnConsultar.setEnabled(false);
+            btnAlterar.setEnabled(true);
+            btnExcluir.setEnabled(true);
+            
+            txtfSigCur.setText(curso.getSigla());
+            
+            txtfNomCur.setText(curso.getNome());
+            txtfCarHor.setText( String.valueOf(curso.getCargaHoraria()) );
+            txtfValCur.setText(String.valueOf(curso.getValor()));
+            txtfProgCur.setText(curso.getPrograma());
+            
+            ftfDatVig.setText(curso.getDataVigencia());
+            txtfValIns.setText(String.valueOf(curso.getValorHoraInstrutor()));
+            
+            txtfNomCur.requestFocus();
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conexao = new Conexao("alex","alex1234");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        daoCurso = new DaoCurso(conexao.conectar());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -274,4 +348,7 @@ public class GUICurso extends javax.swing.JFrame {
     private javax.swing.JTextField txtfValCur;
     private javax.swing.JTextField txtfValIns;
     // End of variables declaration//GEN-END:variables
+    private Conexao conexao;
+    private DaoCurso daoCurso;
+    private Curso curso;
 }
