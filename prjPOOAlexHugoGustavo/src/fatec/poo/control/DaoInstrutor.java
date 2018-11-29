@@ -55,7 +55,6 @@ public class DaoInstrutor {
         ps = conn.prepareStatement("SELECT nome, formacao, areaAtuacao FROM tb_Pessoa, tb_Instrutor WHERE tb_Pessoa.cpf = tb_Instrutor.cpf AND tb_Pessoa.cpf = ?");
         ps.setString(1, cpf);
         ResultSet rs = ps.executeQuery();
-            System.out.println("cpf: "+cpf);
         if (rs.next() == true){
             i = new Instrutor(cpf, rs.getString(1));
             i.setFormacao(rs.getString(2));
