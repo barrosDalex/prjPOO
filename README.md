@@ -1,28 +1,9 @@
-# Projeto de controle de treinamento
+## Projeto de controle de treinamento
 
-## Progresso
-Trabalho 1 OK
+### Progresso
+Trabalho final
 
-## GUI
-
-Button - btn
-<br>
-Label - lab
-<br>
-Text Field - txtf
-<br>
-Formatted Text Field - ftf
-<br>
-ComboBox - cbox
-<br>
-Menu Bar - mbar
-<br>
-Painel - pai
-<br>
-Menu - men
-<br>
-
-## Responsaveis
+### Responsaveis
 Alex Barros 
 <br>
 Hugo 
