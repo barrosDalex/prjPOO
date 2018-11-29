@@ -44,6 +44,7 @@ public class GUIMenu extends javax.swing.JFrame {
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Trabalho POO");
 
         menCadastros.setText("Cadastros");
 

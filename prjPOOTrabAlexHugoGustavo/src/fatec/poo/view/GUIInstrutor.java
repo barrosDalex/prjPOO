@@ -68,6 +68,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
         ftfRG = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Instrutor");
         setSize(new java.awt.Dimension(3, 3));
 
         labCPF.setText("CPF");
@@ -493,8 +494,8 @@ public class GUIInstrutor extends javax.swing.JFrame {
     }//GEN-LAST:event_ftfRGActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
         // TODO add your handling code here:
-        dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**
