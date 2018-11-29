@@ -86,7 +86,7 @@ insert into tb_Pessoa (nome, dataNasc, endereco, numero, bairro, cidade, estado,
 -- Instrutor
 insert into tb_Instrutor (cpf, formacao, areaAtuacao)
 	values ('87174013058', 'Universidade Chigago', 'Programação');
-
+			
 insert into tb_Instrutor (cpf, formacao, areaAtuacao)
 	values ('95156074006', 'Universidade Austria', 'Matemática');
 	

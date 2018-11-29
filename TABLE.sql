@@ -2,6 +2,17 @@
 
 -- Tabelas
 
+--Se precisar limpar
+
+drop table tb_turma;
+drop table tb_curso;
+drop table tb_matricula;
+drop table tb_aprazo;
+drop table tb_avista;
+drop table tb_instrutor;
+drop table tb_aluno;
+drop table tb_pessoa;
+
 create table tb_Pessoa(
 	nome varchar2(30) not null,
 	dataNasc varchar2(10),
