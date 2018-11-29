@@ -392,9 +392,9 @@ public class GUIAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Conexao conexao = new Conexao("","");
+        conexao = new Conexao("alex","alex1234");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
-        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe"); 
         daoAluno = new DaoAluno(conexao.conectar());
         daoPessoa = new DaoPessoa(conexao.conectar());
     }//GEN-LAST:event_formWindowOpened
@@ -521,7 +521,7 @@ public class GUIAluno extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
-            daoAluno.Excluir(aluno);
+            daoAluno.Excluir(aluno.getCPF());
         }
         
         ftfCPF.setText("");

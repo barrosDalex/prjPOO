@@ -280,6 +280,7 @@ public class GUITurma extends javax.swing.JFrame {
             txtfQtdeVag.setEnabled(true);
             tftDtIni.setEnabled(true);
             ftfDtTerm.setEnabled(true);
+            
         }
         else{
             txtfNome.setText( turma.getDescricao() );
