@@ -588,7 +588,7 @@ public class GUIInstrutor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conexao = new Conexao("alex","alex1234");
+        conexao = new Conexao("","");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe"); 
         daoInstrutor = new DaoInstrutor(conexao.conectar());
