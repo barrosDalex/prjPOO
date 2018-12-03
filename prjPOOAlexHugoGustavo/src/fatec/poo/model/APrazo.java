@@ -39,7 +39,11 @@ public class APrazo {
         this.QtdeMensalidade = QtdeMensalidade;
     }
     
-    public void addMatricula(Matricula m){
+    public void setMatricula(Matricula m){
         this.matricula = m;
+    }
+    
+    public Matricula getMatricula(){
+        return matricula;
     }
 }
