@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
-import fatec.poo.control.DaoInstrutor;
 import fatec.poo.model.Instrutor;
 
 public class DaoInstrutor {
@@ -34,7 +33,7 @@ public class DaoInstrutor {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("UPDATE tb_Instrutor SET formacao = ?," +
-                                                "SET areaAtuacao = ?" +
+                                                "areaAtuacao = ?" +
                                                  "where cpf = ?");
             
             ps.setString(1, instrutor.getFormacao());
