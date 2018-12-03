@@ -109,9 +109,19 @@ public class GUIMenu extends javax.swing.JFrame {
         menOperacoes.setText("Operações");
 
         mitnAlocInstrutor.setText("Alocar instrutor");
+        mitnAlocInstrutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitnAlocInstrutorActionPerformed(evt);
+            }
+        });
         menOperacoes.add(mitnAlocInstrutor);
 
         mitnEfetMatricula.setText("Efetuar matrícula");
+        mitnEfetMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitnEfetMatriculaActionPerformed(evt);
+            }
+        });
         menOperacoes.add(mitnEfetMatricula);
 
         mbarPrincipal.add(menOperacoes);
@@ -126,7 +136,7 @@ public class GUIMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 281, Short.MAX_VALUE)
         );
 
         pack();
@@ -161,6 +171,14 @@ public class GUIMenu extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     }//GEN-LAST:event_formWindowClosed
+
+    private void mitnAlocInstrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitnAlocInstrutorActionPerformed
+        new GUIAlocarInstrutor().setVisible(true);
+    }//GEN-LAST:event_mitnAlocInstrutorActionPerformed
+
+    private void mitnEfetMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitnEfetMatriculaActionPerformed
+        new GUIEfetuarMatricula().setVisible(true);
+    }//GEN-LAST:event_mitnEfetMatriculaActionPerformed
 
     /**
      * @param args the command line arguments

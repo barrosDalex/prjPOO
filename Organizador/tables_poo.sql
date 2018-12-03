@@ -53,7 +53,7 @@ create table tb_AVista(
 	valor number(7, 2) not null,
 	agencia number(5) not null,
 	nCheque number(8) not null,
-	preDt date not null);
+	preDt varchar2(15) not null);
 
 create table tb_APrazo(
 	cpfMatricula varchar2(11) not null, -- PK FK
@@ -66,6 +66,7 @@ create table tb_Matricula(
 	cpf varchar2(11) not null, -- PK FK
 	dtMatricula varchar2(15),
 	nota number(4, 2) not null,
+	qtdeFaltas number(3),
 	siglaTurma varchar2(5) not null); -- FK
 
 	

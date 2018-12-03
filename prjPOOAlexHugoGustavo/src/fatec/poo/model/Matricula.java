@@ -52,5 +52,12 @@ public class Matricula {
     public void EmitirCarne(){
         //Não implementar neste trabalho
     }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
     
+    public Turma getTurma() {
+        return turma;
+    }
 }

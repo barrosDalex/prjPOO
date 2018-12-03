@@ -34,7 +34,7 @@ public class DaoInstrutor {
         try {
             ps = conn.prepareStatement("UPDATE tb_Instrutor SET formacao = ?," +
                                                 "areaAtuacao = ?" +
-                                                 "where cpf = ?");
+                                                "WHERE cpf = ?");
             
             ps.setString(1, instrutor.getFormacao());
             ps.setString(2, instrutor.getAreaAtuacao());
