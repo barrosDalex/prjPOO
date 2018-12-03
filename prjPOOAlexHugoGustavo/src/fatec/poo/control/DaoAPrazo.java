@@ -18,6 +18,7 @@ public class DaoAPrazo {
         PreparedStatement ps = null;
         try{
             ps = conn.prepareStatement("INSERT INTO tb_APrazo VALUES(?,?,?,?,?)");
+            
             ps.setString(1, aprazo.getMatricula().getAluno().getCPF());
             ps.setString(2, Double.toString(aprazo.getValor()));
             ps.setString(3, aprazo.getDtVencimento());
@@ -58,6 +59,7 @@ public class DaoAPrazo {
         try{
             ps = conn.prepareStatement("SELECT* FROM tb_APrazo WHERE cpfMatricula = ?");
             ps.setString(1, cpf);
+            
             ResultSet rs = ps.executeQuery();
             
             if(rs.next() == true){

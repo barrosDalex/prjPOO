@@ -18,6 +18,7 @@ public class DaoAVista {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("INSERT INTO tb_AVista VALUES(?,?,?,?,?)");
+            
             ps.setString(1, avista.getMatricula().getAluno().getCPF());
             ps.setString(2, Double.toString(avista.getValor()));
             ps.setString(3, Integer.toString(avista.getAgencia()));
@@ -58,6 +59,7 @@ public class DaoAVista {
         try{
             ps = conn.prepareStatement("SELECT * FROM tb_Avista WHERE cpfMatricula = ?");
             ps.setString(1, cpf);
+            
             ResultSet rs = ps.executeQuery();
             
             if(rs.next() == true){

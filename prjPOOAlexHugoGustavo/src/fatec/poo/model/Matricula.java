@@ -56,4 +56,8 @@ public class Matricula {
     public Aluno getAluno() {
         return aluno;
     }
+    
+    public Turma getTurma() {
+        return turma;
+    }
 }
