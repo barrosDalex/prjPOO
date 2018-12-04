@@ -92,15 +92,15 @@ alter table tb_Turma add constraint PK_Turma_siglaTurma primary key (siglaTurma)
 alter table tb_Turma add constraint FK_Turma_cpfInstrutor foreign key (cpfInstrutor) references tb_Instrutor;
 alter table tb_Turma add constraint FK_Turma_siglaCurso foreign key (siglaCurso) references tb_Curso;
 
--- AVista
-alter table tb_AVista add constraint PK_AVista primary key (codAvista);
-alter table tb_AVista add constraint FK_AVista_Matricula foreign key (cpfMatricula) references tb_Matricula(cpf);
-
--- APrazo
-alter table tb_APrazo add constraint PK_APrazo primary key (codAprazo);
-alter table tb_APrazo add constraint FK_APrazo_Matricula foreign key (cpfMatricula) references tb_Matricula(cpf);
-
 -- Matricula
 alter table tb_Matricula add constraint FK_Matricula_cpf foreign key (cpf) references tb_Aluno;
 alter table tb_Matricula add constraint PK_Matricula_cpf primary key (cpf);
 alter table tb_Matricula add constraint FK_Matricula_siglaTurma foreign key (siglaTurma) references tb_Turma;
+
+-- AVista
+alter table tb_AVista add constraint PK_AVista primary key (cpfMAtricula);
+alter table tb_AVista add constraint FK_AVista_Matricula foreign key (cpfMatricula) references tb_Matricula(cpf);
+
+-- APrazo
+alter table tb_APrazo add constraint PK_APrazo primary key (cpfMatricula);
+alter table tb_APrazo add constraint FK_APrazo_Matricula foreign key (cpfMatricula) references tb_Matricula(cpf);

@@ -166,35 +166,35 @@ insert into tb_Turma (siglaTurma, descricao, dtInicio, dtTermino, periodo, qtdeV
 	values ('FID1', 'Filosofia Diurno 1', '20/02/2018', '30/11/2017', 'Diurno', 40, 'Turma 1 de filosofia diurno', '65590711037', 'FILO');
 	
 -- AVista
-insert into tb_AVista (codAvista, valor, agencia, nCheque, preDt)
+insert into tb_AVista (cpfMatricula , valor, agencia, nCheque, preDt)
 	values (1, 50000.00, 15560, 15560001, '01/03/2017');
 	
-insert into tb_AVista (codAvista, valor, agencia, nCheque, preDt)
+insert into tb_AVista (cpfMatricula, valor, agencia, nCheque, preDt)
 	values (2, 50000.00, 28571, 28571001, '11/05/2017');
 
-insert into tb_AVista (codAvista, valor, agencia, nCheque, preDt)
+insert into tb_AVista (cpfMatricula, valor, agencia, nCheque, preDt)
 	values (3, 80000.00, 77545, 77545001, '01/01/2015');
 
-insert into tb_AVista (codAvista, valor, agencia, nCheque, preDt)
+insert into tb_AVista (cpfMatricula, valor, agencia, nCheque, preDt)
 	values (4, 15000.00, 65854, 65854001, '20/01/2018');
 	
-insert into tb_AVista (codAvista, valor, agencia, nCheque, preDt)
+insert into tb_AVista (cpfMatricula, valor, agencia, nCheque, preDt)
 	values (5, 80000.00, 65745, 65745001, '30/11/2016');
 	
 -- APrazo
-insert into tb_APrazo (codAprazo, valor, dtVencimento, taxaJuros, qtdeMensalidade)
+insert into tb_APrazo (cpfMatricula, valor, dtVencimento, taxaJuros, qtdeMensalidade)
 	values (1, 50000.00, '10/03/2017', 8, 24);
 	
-insert into tb_APrazo (codAprazo, valor, dtVencimento, taxaJuros, qtdeMensalidade)
+insert into tb_APrazo (cpfMatricula, valor, dtVencimento, taxaJuros, qtdeMensalidade)
 	values (2, 80000.00, '11/03/2015', 10, 12);
 	
-insert into tb_APrazo (codAprazo, valor, dtVencimento, taxaJuros, qtdeMensalidade)
+insert into tb_APrazo (cpfMatricula, valor, dtVencimento, taxaJuros, qtdeMensalidade)
 	values (3, 80000.00, '08/03/2015', 11.5, 18);
 	
-insert into tb_APrazo (codAprazo, valor, dtVencimento, taxaJuros, qtdeMensalidade)
+insert into tb_APrazo (cpfMatricula, valor, dtVencimento, taxaJuros, qtdeMensalidade)
 	values (4, 15000.00, '10/03/2018', 5, 5);
 	
-insert into tb_APrazo (codAprazo, valor, dtVencimento, taxaJuros, qtdeMensalidade)
+insert into tb_APrazo (cpfMatricula, valor, dtVencimento, taxaJuros, qtdeMensalidade)
 	values (5, 15000.00, '28/02/2018', 7, 8);
 	
 -- Matricula
