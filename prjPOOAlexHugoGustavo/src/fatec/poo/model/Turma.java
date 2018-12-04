@@ -146,12 +146,12 @@ public class Turma {
     
     public void addInstrutor(Instrutor I){
         this.instrutor = I;
-        I.setTurma(this);
+        I.addTurma(this);
     }
     
     public void addCurso(Curso c){
         this.Curso = c;
-        c.setTurma(this);
+        c.addTurma(this);
     }
     
 }

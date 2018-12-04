@@ -12,6 +12,7 @@ import fatec.poo.model.Curso;
 import fatec.poo.model.Turma;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -78,7 +79,7 @@ public class GUITurma extends javax.swing.JFrame {
 
         jLabel7.setText("Data ínicio");
 
-        jLabel8.setText("Perído");
+        jLabel8.setText("Período");
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         btnConsultar.setText("Consultar");
@@ -100,10 +101,20 @@ public class GUITurma extends javax.swing.JFrame {
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.setEnabled(false);
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setEnabled(false);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -279,13 +290,10 @@ public class GUITurma extends javax.swing.JFrame {
             txtfSiglaCurs.setEnabled(false);
 
             txtfNome.requestFocus();
-
-            txtfNome.setEnabled(true);
-            txtfQtdeVag.setEnabled(true);
-            tftDtIni.setEnabled(true);
-            ftfDtTerm.setEnabled(true);
-            cboxPeriodo.setEnabled(true);
-        } else {
+            
+        } 
+        else {
+            
             txtfNome.setText(turma.getDescricao());
             txtfQtdeVag.setText(String.valueOf(turma.getQtdVagas()));
             tftDtIni.setText(turma.getDataInicio());
@@ -298,6 +306,12 @@ public class GUITurma extends javax.swing.JFrame {
             txtfSiglaCurs.setEnabled(false);
             txtfNome.requestFocus();
         }
+        
+        txtfNome.setEnabled(true);
+        txtfQtdeVag.setEnabled(true);
+        tftDtIni.setEnabled(true);
+        ftfDtTerm.setEnabled(true);
+        cboxPeriodo.setEnabled(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -316,6 +330,45 @@ public class GUITurma extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnInserirActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
+            turma = new Turma(txtfSiglaCurs.getText(), txtfNome.getText());
+            turma.setDescricao(txtfNome.getText());
+            turma.setQtdVagas( Integer.parseInt(txtfQtdeVag.getText()) );
+            turma.setDataInicio( tftDtIni.getText());
+            turma.setDataTermino(ftfDtTerm.getText() );
+            turma.setPeriodo( (String) cboxPeriodo.getSelectedItem());
+            turma.setCurso( daoCurso.consultar((String) cboxCurso.getSelectedItem()));
+            
+            daoTurma.alterar(turma);
+            
+            txtfSiglaCurs.setEnabled(false);
+
+            txtfNome.requestFocus();
+            txtfSiglaCurs.setText("");
+            txtfNome.setText("");
+            txtfNome.setText("");
+            txtfQtdeVag.setText("");
+            tftDtIni.setText("");
+            ftfDtTerm.setText("");
+            cboxPeriodo.setSelectedIndex(0x0);                    
+        }
+        
+        
+                
+                
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
+            
+        }
+        
+        
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments

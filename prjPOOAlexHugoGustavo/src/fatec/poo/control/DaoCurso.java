@@ -27,10 +27,10 @@ public class DaoCurso {
 
             ps.setString(1, curso.getSigla());
             ps.setString(2, curso.getNome());
-            ps.setInt(3, curso.getCargaHoraria());
-            ps.setDouble(4, curso.getValor());
+            ps.setString(3, Integer.toString( curso.getCargaHoraria()));
+            ps.setString(4, Double.toString(curso.getValor()));
             ps.setString(5, curso.getDataVigencia());
-            ps.setDouble(6, curso.getValorHoraInstrutor());
+            ps.setString(6, Double.toString( curso.getValorHoraInstrutor()));
             ps.setString(7, curso.getPrograma());
 
             ps.execute();
@@ -47,10 +47,10 @@ public class DaoCurso {
                     + "where  siglaCurso = ?");
 
             ps.setString(1, curso.getNome());
-            ps.setInt(2,curso.getCargaHoraria());
-            ps.setDouble(3, curso.getValor());
+            ps.setString(2, Integer.toString(curso.getCargaHoraria()));
+            ps.setString(3, Double.toString(curso.getValor()));
             ps.setString(4, curso.getDataVigencia());
-            ps.setDouble(5, curso.getValorHoraInstrutor());
+            ps.setString(5, Double.toString( curso.getValorHoraInstrutor()));
             ps.setString(6, curso.getPrograma());
             ps.setString(7, curso.getSigla());
 
@@ -73,7 +73,7 @@ public class DaoCurso {
 
             if (rs.next() == true) {
                 c = new Curso(sigla, rs.getString("nome"));
-                c.setCargaHoraria(rs.getInt("cargaHoraria"));
+                c.setCargaHoraria( rs.getInt("cargaHoraria"));
                 c.setValor(rs.getDouble("valor"));
                 c.setDataVigencia(rs.getString("dtVigencia"));
                 c.setValorHoraInstrutor(rs.getDouble("valorHoraInstrutor"));

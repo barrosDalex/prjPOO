@@ -1,5 +1,6 @@
 package fatec.poo.control;
 
+import fatec.poo.model.Curso;
 import fatec.poo.model.Instrutor;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -44,12 +45,12 @@ public class DaoTurma {
         try {
             ps = conn.prepareStatement("UPDATE tb_Turma set dtInicio = ?, "
                     + " dtTermino = ?, " + "periodo = ?, " + "qtdeVagas = ?, "
-                    + "observacoes = ?, " + "siglaCurso = ?" + "where siglaTurma = ?");
+                    + "observacoes = ?, " + "where siglaTurma = ?");
 
             ps.setString(1, turma.getDataInicio());
             ps.setString(2, turma.getDataTermino());
             ps.setString(3, turma.getPeriodo());
-            ps.setInt(4, turma.getQtdVagas());
+            ps.setString(4, Integer.toString( turma.getQtdVagas()) );
             ps.setString(5, turma.getObservacoes());
             ps.setString(6, turma.getCurso().getSigla());
 
@@ -62,6 +63,8 @@ public class DaoTurma {
 
     public Turma consultar(String sigla) {
         Turma t = null;
+        Instrutor i = null;
+        Curso c = null;
         try {
             //DaoCurso curso = new DaoCurso(conn);
             PreparedStatement ps = null;
@@ -79,8 +82,10 @@ public class DaoTurma {
                     t.setPeriodo(rs.getString("periodo"));
                     t.setQtdVagas(rs.getInt("qtdeVagas"));
                     t.setObservacoes(rs.getString("observacoes"));
-                    t.setInstrutor(null);
-                    t.setCurso(/*curso.consultar(rs.getString("siglaCurso"))*/null);
+                    i = new DaoInstrutor(conn).consultar( rs.getString("cpfInstrutor"));
+                    c = new DaoCurso(conn).consultar( rs.getString("siglaCurso") );
+                    t.addInstrutor(i);
+                    t.addCurso(c);
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
