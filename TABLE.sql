@@ -11,13 +11,13 @@ create table tb_Pessoa(
 	cidade varchar2(20),
 	estado varchar2(20),
 	cep varchar2(8),
-	telefone varchar2(10),
-	celular varchar2(11),
+	telefone varchar2(11),
+	celular varchar2(12),
 	sexo varchar2(9) not null, -- CHK
 	estadoCivil varchar2(15),
 	rg varchar2(9) not null, -- UQ
 	cpf varchar2(11) not null, -- PK
-	email varchar2(30));
+	email varchar2(45));
 
 create table tb_Instrutor(
 	cpf varchar2(11) not null, -- PK FK
