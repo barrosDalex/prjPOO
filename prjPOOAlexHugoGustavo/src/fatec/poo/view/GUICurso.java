@@ -308,7 +308,14 @@ public class GUICurso extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
-        
+            curso = new Curso(txtfSigCur.getText(), txtfNomCur.getText());
+            curso.setCargaHoraria( Integer.parseInt(txtfCarHor.getText()));
+            curso.setValor( Double.parseDouble(txtfValCur.getText()));
+            curso.setPrograma(txtfProgCur.getText());
+            curso.setDataVigencia( ftfDatVig.getText().replaceAll("[{//}]", ""));
+            curso.setValorHoraInstrutor(Double.parseDouble(txtfValIns.getText()));
+
+            daoCurso.alterar(curso);
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 

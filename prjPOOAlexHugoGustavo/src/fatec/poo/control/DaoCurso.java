@@ -42,9 +42,22 @@ public class DaoCurso {
     public void alterar(Curso curso) {
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("UPDATE tb_Curso set nome = ?, " + "cargaHoraria = ?, "
-                    + "valor = ?, " + "dtVigencia = ?, " + "valorHoraInstrutor = ?, " + "programa = ?"
-                    + "where  siglaCurso = ?");
+            
+                ps = conn.prepareStatement( "UPDATE tb_Curso set nome = 'comp',"+
+                    "cargaHoraria = 500," +
+                    "valor = 2500,"+
+                    "dtVigencia = '31/10/1998',"+
+                    "valorHoraInstrutor = 190," +
+                    "programa = 'teste'" +
+                    "where  siglaCurso = 'COMP'");
+            
+           /* ps = conn.prepareStatement("UPDATE tb_Curso set nome = ?," +
+                    "cargaHoraria = ?,"+ 
+                    "valor = ?," + 
+                    "dtVigencia = ?," +
+                    "valorHoraInstrutor = ?," +
+                    "programa = ?"+ 
+                    "where  siglaCurso = ?"); 
 
             ps.setString(1, curso.getNome());
             ps.setString(2, Integer.toString(curso.getCargaHoraria()));
@@ -52,9 +65,10 @@ public class DaoCurso {
             ps.setString(4, curso.getDataVigencia());
             ps.setString(5, Double.toString( curso.getValorHoraInstrutor()));
             ps.setString(6, curso.getPrograma());
-            ps.setString(7, curso.getSigla());
+            ps.setString(7, curso.getSigla()); */
 
             ps.execute();
+            
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
