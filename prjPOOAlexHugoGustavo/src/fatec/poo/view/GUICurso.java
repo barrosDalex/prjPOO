@@ -316,13 +316,28 @@ public class GUICurso extends javax.swing.JFrame {
             curso.setValorHoraInstrutor(Double.parseDouble(txtfValIns.getText()));
 
             daoCurso.alterar(curso);
+            
+            txtfNomCur.setText("");
+            txtfCarHor.setText("");
+            txtfValCur.setText("");
+            txtfProgCur.setText("");
+            txtfValIns.setText("");
+            ftfDatVig.setText("");
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
-        
+            daoCurso.excluir(curso);
+            
+            txtfSigCur.setText("");
+            txtfNomCur.setText("");
+            txtfCarHor.setText("");
+            txtfValCur.setText("");
+            txtfProgCur.setText("");
+            txtfValIns.setText("");
+            ftfDatVig.setText("");
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
        

@@ -5,6 +5,15 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoCurso;
+import fatec.poo.control.DaoInstrutor;
+import fatec.poo.control.DaoTurma;
+import fatec.poo.model.Curso;
+import fatec.poo.model.Instrutor;
+import fatec.poo.model.Turma;
+import java.util.ArrayList;
+
 /**
  *
  * @author Gorom
@@ -41,6 +50,17 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alocar Instrutor");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        cboxCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxCursosActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Curso");
 
@@ -153,6 +173,49 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtfSituacaoPropertyChange
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        conexao = new Conexao("alex", "alex1234");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+
+        daoTurma = new DaoTurma(conexao.conectar());
+        daoInstrutor = new DaoInstrutor(conexao.conectar());
+        daoCurso = new DaoCurso(conexao.conectar());
+        
+        cboxCursos.removeAllItems();
+        cboxInstrutores.removeAllItems();
+        
+        instrutores = daoInstrutor.ListarInstrutor();
+        cursos = daoCurso.ListarCursos();
+        
+        for (int i = 0; i < instrutores.size(); i++){
+            cboxInstrutores.addItem(instrutores.get(i).getNome());
+        }
+        
+        for (int i = 0; i < cursos.size(); i++){
+            cboxCursos.addItem(cursos.get(i).getSigla());
+        }       
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
+        // TODO add your handling code here:
+        if (cboxCursos.getItemCount() > 0){
+            cboxTurmas.removeAllItems();
+            
+            for (int i = 0; i < turmas.size(); i++){
+                if (turmas.get(i) != null){
+                    cboxTurmas.addItem(turmas.get(i).getSiglaTurma());
+                }
+            }
+            
+            
+            
+        }
+        
+    }//GEN-LAST:event_cboxCursosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,4 +264,13 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtfSituacao;
     // End of variables declaration//GEN-END:variables
+    private Conexao conexao;
+    private DaoCurso daoCurso;
+    private DaoTurma daoTurma;
+    private DaoInstrutor daoInstrutor;
+    private Curso curso;
+    private Turma turma;
+    ArrayList<Curso> cursos = new ArrayList();
+    ArrayList<Turma> turmas = new ArrayList();
+    ArrayList<Instrutor> instrutores = new ArrayList();
 }

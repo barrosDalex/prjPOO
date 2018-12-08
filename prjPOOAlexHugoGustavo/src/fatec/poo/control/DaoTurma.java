@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 import fatec.poo.model.Turma;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,7 +33,7 @@ public class DaoTurma {
             ps.setString(5, Integer.toString(turma.getQtdVagas()));
             ps.setString(6, turma.getDescricao());
             ps.setString(7, turma.getCurso().getSigla());
-            ps.setString(8, "");
+            ps.setString(8, null);
 
             ps.execute();
         } catch (SQLException ex) {
@@ -43,16 +44,17 @@ public class DaoTurma {
     public void alterar(Turma turma) {
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("UPDATE tb_Turma set dtInicio = ?, "
-                    + " dtTermino = ?, " + "periodo = ?, " + "qtdeVagas = ?, "
-                    + "observacoes = ?, " + "where siglaTurma = ?");
-
+            ps = conn.prepareStatement("UPDATE tb_Turma set dtInicio = ?,"
+                    + "dtTermino = ?," + "periodo = ?, " + "qtdeVagas = ?," 
+                    + "siglaCurso = ?, "
+                    + "observacoes = ? " + "where siglaTurma = ?");
             ps.setString(1, turma.getDataInicio());
             ps.setString(2, turma.getDataTermino());
             ps.setString(3, turma.getPeriodo());
-            ps.setString(4, Integer.toString( turma.getQtdVagas()) );
-            ps.setString(5, turma.getObservacoes());
-            ps.setString(6, turma.getCurso().getSigla());
+            ps.setString(4, String.valueOf(turma.getQtdVagas()) );
+            ps.setString(5, turma.getCurso().getSigla());
+            ps.setString(6, turma.getDescricao());
+            ps.setString(7, turma.getSiglaTurma());            
 
             ps.execute();
 
@@ -84,7 +86,7 @@ public class DaoTurma {
                     t.setObservacoes(rs.getString("observacoes"));
                     i = new DaoInstrutor(conn).consultar( rs.getString("cpfInstrutor"));
                     c = new DaoCurso(conn).consultar( rs.getString("siglaCurso") );
-                    t.addInstrutor(i);
+                    t.setInstrutor(i);
                     t.addCurso(c);
                 }
             } catch (SQLException ex) {
@@ -100,7 +102,7 @@ public class DaoTurma {
     public void excluir(Turma turma) {
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("DELETE FROM tbdepartamento where siglaTurma = ?");
+            ps = conn.prepareStatement("DELETE FROM tb_Turma where siglaTurma = ?");
 
             ps.setString(1, turma.getSiglaTurma());
 
@@ -108,6 +110,26 @@ public class DaoTurma {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
+    }
+    
+    public ArrayList<Turma> ListarTurmas() {
+            
+        ArrayList<Turma> turmas = new ArrayList();
+            
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement("SELECT siglaTurma from tb_Turma");
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                turmas.add( consultar(rs.getString("siglaTurma")) );
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+
+        return turmas;
     }
 
 }

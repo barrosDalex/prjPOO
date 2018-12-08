@@ -296,6 +296,7 @@ public class GUITurma extends javax.swing.JFrame {
             
             txtfNome.setText(turma.getDescricao());
             txtfQtdeVag.setText(String.valueOf(turma.getQtdVagas()));
+            cboxPeriodo.setSelectedItem(turma.getPeriodo());
             tftDtIni.setText(turma.getDataInicio());
             ftfDtTerm.setText(turma.getDataTermino());
 
@@ -341,18 +342,16 @@ public class GUITurma extends javax.swing.JFrame {
             turma.setDataTermino(ftfDtTerm.getText() );
             turma.setPeriodo( (String) cboxPeriodo.getSelectedItem());
             turma.setCurso( daoCurso.consultar((String) cboxCurso.getSelectedItem()));
-            
             daoTurma.alterar(turma);
             
             txtfSiglaCurs.setEnabled(false);
 
             txtfNome.requestFocus();
             txtfSiglaCurs.setText("");
-            txtfNome.setText("");
-            txtfNome.setText("");
             txtfQtdeVag.setText("");
             tftDtIni.setText("");
             ftfDtTerm.setText("");
+            txtfNome.setText("");
             cboxPeriodo.setSelectedIndex(0x0);                    
         }
         
@@ -363,8 +362,18 @@ public class GUITurma extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){                        
+            daoTurma.excluir(turma);
             
+            txtfSiglaCurs.setEnabled(false);
+
+            txtfNome.requestFocus();
+            txtfSiglaCurs.setText("");
+            txtfNome.setText("");
+            txtfQtdeVag.setText("");
+            tftDtIni.setText("");
+            ftfDtTerm.setText("");
+            cboxPeriodo.setSelectedIndex(0x0); 
         }
         
         
