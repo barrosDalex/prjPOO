@@ -347,17 +347,12 @@ public class GUITurma extends javax.swing.JFrame {
             txtfSiglaCurs.setEnabled(false);
 
             txtfNome.requestFocus();
-            txtfSiglaCurs.setText("");
             txtfQtdeVag.setText("");
             tftDtIni.setText("");
             ftfDtTerm.setText("");
             txtfNome.setText("");
             cboxPeriodo.setSelectedIndex(0x0);                    
-        }
-        
-        
-                
-                
+        }                                  
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed

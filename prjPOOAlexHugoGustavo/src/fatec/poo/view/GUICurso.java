@@ -323,7 +323,10 @@ public class GUICurso extends javax.swing.JFrame {
             txtfProgCur.setText("");
             txtfValIns.setText("");
             ftfDatVig.setText("");
+            
+            txtfSigCur.setEnabled(true);
         }
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
