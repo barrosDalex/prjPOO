@@ -391,11 +391,9 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         if (Pessoa.validarCPF(cpf) == true){
             pessoa = null;
             aluno = null;
+            
             pessoa = daoPessoa.consultarAluno(cpf);
             aluno = daoAluno.Consultar(cpf);
-            
-            aluno.addMatricula(matricula);
-            matricula.setAluno(aluno);
             
             if (pessoa != null){
                 txtfNome.setText( pessoa.getNome());
@@ -424,10 +422,7 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                     
                 }
                 else{
-                    btnInserir.setEnabled(true);
-                    
-                    daoMatricula.inserir(matricula);
-                    
+                    btnInserir.setEnabled(true);                                        
                 }
                 
 
@@ -530,8 +525,9 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         
         daoTurma = new DaoTurma(conexao.conectar());
         daoCurso = new DaoCurso(conexao.conectar());
-
+        daoMatricula = new DaoMatricula(conexao.conectar());
         daoPessoa = new DaoPessoa(conexao.conectar());
+        daoAluno = new DaoAluno(conexao.conectar());
         
         cboxCursos.removeAllItems();
         
