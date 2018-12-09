@@ -266,6 +266,11 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
 
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserirActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnExcluir.setText("Excluir");
@@ -294,7 +299,7 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,6 +579,12 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         if ( cboxTurmas.getItemCount() > 0 ) turma = turmas.get(cboxTurmas.getSelectedIndex()); 
         
     }//GEN-LAST:event_cboxTurmasActionPerformed
+
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnInserirActionPerformed
 
     /**
      * @param args the command line arguments
