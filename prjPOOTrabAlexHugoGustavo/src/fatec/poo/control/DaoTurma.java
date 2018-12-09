@@ -130,7 +130,7 @@ public class DaoTurma {
     public void desalocarInstrutor(Turma turma){        
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("UPDATE tb_Turma set cpfInstrutor = ?,"
+            ps = conn.prepareStatement("UPDATE tb_Turma set cpfInstrutor = ?"
                                        + "where siglaTurma = ?");
             ps.setString(1, null);
             ps.setString(2, turma.getSiglaTurma());            

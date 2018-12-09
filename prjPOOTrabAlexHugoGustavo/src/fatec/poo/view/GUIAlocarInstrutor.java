@@ -103,6 +103,11 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
         btnLiberar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         btnLiberar.setText("Liberar");
         btnLiberar.setEnabled(false);
+        btnLiberar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLiberarActionPerformed(evt);
+            }
+        });
 
         btnAlocar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnAlocar.setText("Alocar");
@@ -195,22 +200,59 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
     private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
         // TODO add your handling code here:
         turmas = daoTurma.ListarTurmas( String.valueOf(cboxCursos.getSelectedItem()) );
-
+        
         cboxTurmas.removeAllItems();
         
-        for (int i = 0; i < turmas.size() ; i++){
-            cboxTurmas.addItem(turmas.get(i).getSiglaTurma());
+        for (int i = 0; i < turmas.size(); i++){
+            if (turmas.get(i) != null){ 
+                cboxTurmas.addItem(turmas.get(i).getSiglaTurma());
+            }
         }
         
-        turma = turmas.get(cboxTurmas.getSelectedIndex()); 
-        
+        if ( cboxTurmas.getItemCount() > 0 ){
+            turma = turmas.get(cboxTurmas.getSelectedIndex()); 
+            if (turma.getInstrutor() == null){
+                btnAlocar.setEnabled(true);
+                btnLiberar.setEnabled(false);
+                txtfSituacao.setText("Liberada");
+            }
+            else{
+                System.out.println("curso"+ turmas.get( cboxTurmas.getSelectedIndex() ).getInstrutor().getNome());
+                btnAlocar.setEnabled(false);
+                btnLiberar.setEnabled(true);
+                txtfSituacao.setText("Alocada");                
+            } 
+        }
+        else{
+            txtfSituacao.setText("Sem turmas");
+            btnAlocar.setEnabled(false);
+            btnLiberar.setEnabled(false);
+        }
     }//GEN-LAST:event_cboxCursosActionPerformed
 
     private void cboxTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTurmasActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:  
         
-        
-        cboxInstrutores.setSelectedItem( turma.getInstrutor().getNome());
+        if ( cboxTurmas.getItemCount() > 0 ){
+            turma = turmas.get(cboxTurmas.getSelectedIndex()); 
+            
+            if (turma.getInstrutor() == null){
+                
+                btnAlocar.setEnabled(true);
+                btnLiberar.setEnabled(false);
+                txtfSituacao.setText("Liberada");
+            }
+            else{
+                System.out.println("turma"+ turma.getInstrutor().getNome());
+                pessoa = daoPessoa.consultar(turma.getInstrutor().getCPF());
+                cboxInstrutores.setSelectedItem(pessoa.getNome());
+                
+                btnAlocar.setEnabled(false);
+                btnLiberar.setEnabled(true);
+                txtfSituacao.setText("Alocada");  
+                
+            }      
+        }
         
     }//GEN-LAST:event_cboxTurmasActionPerformed
 
@@ -260,8 +302,22 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
         txtfSituacao.setText("Alocada");
         
         btnAlocar.setEnabled(false);
-        btnLiberar.setEnabled(true);        
+        btnLiberar.setEnabled(true);
     }//GEN-LAST:event_btnAlocarActionPerformed
+
+    private void btnLiberarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarActionPerformed
+        // TODO add your handling code here:
+        turma = daoTurma.consultar( String.valueOf( cboxTurmas.getSelectedItem()));
+               
+        instrutor = daoInstrutor.consultar( pssoas.get(cboxInstrutores.getSelectedIndex()).getCPF());
+
+        daoTurma.desalocarInstrutor(turma);
+        
+        txtfSituacao.setText("Liberada");
+        
+        btnAlocar.setEnabled(true);
+        btnLiberar.setEnabled(false);       
+    }//GEN-LAST:event_btnLiberarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
