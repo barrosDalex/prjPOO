@@ -217,7 +217,9 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
                 txtfSituacao.setText("Liberada");
             }
             else{
-                System.out.println("curso"+ turmas.get( cboxTurmas.getSelectedIndex() ).getInstrutor().getNome());
+                pessoa = daoPessoa.consultar(turma.getInstrutor().getCPF());
+                cboxInstrutores.setSelectedItem(pessoa.getNome());
+                
                 btnAlocar.setEnabled(false);
                 btnLiberar.setEnabled(true);
                 txtfSituacao.setText("Alocada");                
@@ -232,6 +234,7 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
 
     private void cboxTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTurmasActionPerformed
         // TODO add your handling code here:  
+        turmas = daoTurma.ListarTurmas( String.valueOf(cboxCursos.getSelectedItem()) );
         
         if ( cboxTurmas.getItemCount() > 0 ){
             turma = turmas.get(cboxTurmas.getSelectedIndex()); 
@@ -243,7 +246,6 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
                 txtfSituacao.setText("Liberada");
             }
             else{
-                System.out.println("turma"+ turma.getInstrutor().getNome());
                 pessoa = daoPessoa.consultar(turma.getInstrutor().getCPF());
                 cboxInstrutores.setSelectedItem(pessoa.getNome());
                 
