@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 import fatec.poo.model.Pessoa;
+import java.util.ArrayList;
 
 public class DaoPessoa {
     private Connection conn;
@@ -126,6 +127,27 @@ public class DaoPessoa {
         } catch (SQLException ex) {
              System.out.println(ex.toString());   
         }
+    }
+    
+    public ArrayList<Pessoa> ListarInstrutor(){
+        ArrayList<Pessoa> pessoas = new ArrayList();
+        
+        PreparedStatement ps = null;
+        
+        try {
+            ps = conn.prepareStatement("SELECT cpf from tb_Instrutor");
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoas.add( consultar(rs.getString("cpf")) );
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+                
+        return pessoas;
     }
 
 }

@@ -5,6 +5,17 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoCurso;
+import fatec.poo.control.DaoInstrutor;
+import fatec.poo.control.DaoPessoa;
+import fatec.poo.control.DaoTurma;
+import fatec.poo.model.Curso;
+import fatec.poo.model.Instrutor;
+import fatec.poo.model.Pessoa;
+import fatec.poo.model.Turma;
+import java.util.ArrayList;
+
 /**
  *
  * @author Gorom
@@ -41,6 +52,11 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alocar Instrutor");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         cboxCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +106,11 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
 
         btnAlocar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         btnAlocar.setText("Alocar");
+        btnAlocar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlocarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,19 +194,75 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
 
     private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
         // TODO add your handling code here:
+        turmas = daoTurma.ListarTurmas( String.valueOf(cboxCursos.getSelectedItem()) );
+
+        cboxTurmas.removeAllItems();
+        
+        for (int i = 0; i < turmas.size() ; i++){
+            cboxTurmas.addItem(turmas.get(i).getSiglaTurma());
+        }
+        
+        turma = turmas.get(cboxTurmas.getSelectedIndex()); 
+        
     }//GEN-LAST:event_cboxCursosActionPerformed
 
     private void cboxTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTurmasActionPerformed
         // TODO add your handling code here:
+        
+        
+        cboxInstrutores.setSelectedItem( turma.getInstrutor().getNome());
+        
     }//GEN-LAST:event_cboxTurmasActionPerformed
 
     private void cboxInstrutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxInstrutoresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboxInstrutoresActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        conexao = new Conexao("alex", "alex1234");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        
+        daoTurma = new DaoTurma(conexao.conectar());
+        daoCurso = new DaoCurso(conexao.conectar());
+        daoInstrutor = new DaoInstrutor(conexao.conectar());
+        daoPessoa = new DaoPessoa(conexao.conectar());
+        
+        cboxCursos.removeAllItems();
+        cboxInstrutores.removeAllItems();
+        
+        cursos = daoCurso.ListarCursos();
+        pssoas = daoPessoa.ListarInstrutor();
+        turmas = daoTurma.ListarTurmas("COMP");
+        
+        for (int i = 0; i < cursos.size() ; i++){
+            cboxCursos.addItem(cursos.get(i).getSigla());
+        }
+        for (int i = 0; i < pssoas.size() ; i++){
+            cboxInstrutores.addItem(pssoas.get(i).getNome());
+        }
+
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnAlocarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlocarActionPerformed
+        // TODO add your handling code here:        
+        turma = daoTurma.consultar( String.valueOf( cboxTurmas.getSelectedItem()));
+        
+        System.out.println(turma.getSiglaTurma());
+               
+        instrutor = daoInstrutor.consultar( pssoas.get(cboxInstrutores.getSelectedIndex()).getCPF());
+        
+        turma.addInstrutor(instrutor);
+        daoTurma.alocarInstrutor(turma);
+        
+        txtfSituacao.setText("Alocada");
+        
+        btnAlocar.setEnabled(false);
+        btnLiberar.setEnabled(true);        
+    }//GEN-LAST:event_btnAlocarActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -231,4 +308,16 @@ public class GUIAlocarInstrutor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtfSituacao;
     // End of variables declaration//GEN-END:variables
+    private Conexao conexao;
+    private DaoCurso daoCurso;
+    private DaoInstrutor daoInstrutor;
+    private DaoTurma daoTurma;
+    private DaoPessoa daoPessoa;
+    private Pessoa pessoa;
+    private Instrutor instrutor;
+    private Curso curso;
+    private Turma turma;
+    ArrayList<Curso> cursos;
+    ArrayList<Pessoa> pssoas;
+    ArrayList<Turma> turmas;
 }

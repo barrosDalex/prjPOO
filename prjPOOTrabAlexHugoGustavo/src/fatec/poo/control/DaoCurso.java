@@ -128,7 +128,7 @@ public class DaoCurso {
             
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("SELECT siglaCurso from tb_Instrutor");
+            ps = conn.prepareStatement("SELECT siglaCurso from tb_Curso");
 
             ResultSet rs = ps.executeQuery();
 
@@ -140,6 +140,6 @@ public class DaoCurso {
         }
 
         return curso;
-    }
+    }   
 
 }

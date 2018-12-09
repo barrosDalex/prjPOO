@@ -68,7 +68,6 @@ public class DaoTurma {
         Instrutor i = null;
         Curso c = null;
         try {
-            //DaoCurso curso = new DaoCurso(conn);
             PreparedStatement ps = null;
 
             try {
@@ -112,14 +111,44 @@ public class DaoTurma {
         }
     }
     
-    public ArrayList<Turma> ListarTurmas() {
-            
-        ArrayList<Turma> turmas = new ArrayList();
-            
+    public void alocarInstrutor(Turma turma){        
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("SELECT siglaTurma from tb_Turma");
+            ps = conn.prepareStatement("UPDATE tb_Turma set cpfInstrutor = ?"
+                                       + "where siglaTurma = ?");
+            
+            ps.setString(1, turma.getInstrutor().getCPF());
+            ps.setString(2, turma.getSiglaTurma());            
 
+            ps.execute();
+
+        } catch (SQLException ex) {
+            System.out.println("alocarInstrutor " + ex.toString());
+        }
+    }
+    
+    public void desalocarInstrutor(Turma turma){        
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement("UPDATE tb_Turma set cpfInstrutor = ?,"
+                                       + "where siglaTurma = ?");
+            ps.setString(1, null);
+            ps.setString(2, turma.getSiglaTurma());            
+
+            ps.execute();
+
+        } catch (SQLException ex) {
+            System.out.println("desalocarInstrutor " +ex.toString());
+        }
+    }
+    
+    public ArrayList<Turma> ListarTurmas(String curso) {
+            
+        ArrayList<Turma> turmas = new ArrayList();
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement("SELECT siglaTurma from tb_Turma WHERE siglaCurso = ?");
+            ps.setString(1, curso);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -128,7 +157,7 @@ public class DaoTurma {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-
+        
         return turmas;
     }
 

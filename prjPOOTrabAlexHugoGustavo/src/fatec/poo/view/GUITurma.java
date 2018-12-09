@@ -266,10 +266,10 @@ public class GUITurma extends javax.swing.JFrame {
         daoCurso = new DaoCurso(conexao.conectar());
         daoTurma = new DaoTurma(conexao.conectar());
 
-        ArrayList<String> cursos = daoCurso.ListarSiglas();
+        ArrayList<Curso> cursos = daoCurso.ListarCursos();
 
         for (int x = 0; x < cursos.size(); x++) {
-            cboxCurso.addItem(cursos.get(x));
+            cboxCurso.addItem(cursos.get(x).getSigla());
         }
 
         cboxCurso.setEnabled(true);

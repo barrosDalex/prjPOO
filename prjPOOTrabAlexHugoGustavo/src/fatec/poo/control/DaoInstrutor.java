@@ -81,23 +81,4 @@ public class DaoInstrutor {
         }
     }
     
-        public ArrayList<Instrutor> ListarInstrutor() {
-            
-        ArrayList<Instrutor> instrutor = new ArrayList();
-            
-        PreparedStatement ps = null;
-        try {
-            ps = conn.prepareStatement("SELECT cpfInstrutor from tb_Instrutor");
-
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                instrutor.add( consultar(rs.getString("cpfInstrutor")) );
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
-
-        return instrutor;
-    }
 }

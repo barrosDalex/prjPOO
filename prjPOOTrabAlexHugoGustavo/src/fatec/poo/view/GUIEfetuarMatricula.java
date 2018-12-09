@@ -5,6 +5,13 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoAPrazo;
+import fatec.poo.control.DaoAVista;
+import fatec.poo.control.DaoAluno;
+import fatec.poo.control.DaoMatricula;
+import fatec.poo.control.DaoPessoa;
+
 /**
  *
  * @author Gorom
@@ -65,6 +72,11 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Efetuar matrícula");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         try {
             ftfDataMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -90,6 +102,12 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+
+        cboxCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxCursosActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Valor");
 
@@ -390,6 +408,20 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_radAprazoActionPerformed
 
+    private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cboxCursosActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        conexao = new Conexao("alex", "alex1234");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+            
+                
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -461,4 +493,10 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
     private javax.swing.JTextField txtfNome;
     private javax.swing.JTextField txtfValor;
     // End of variables declaration//GEN-END:variables
+    private Conexao conexao;
+    private DaoPessoa daoPessoa;
+    private DaoAluno daoAluno;
+    private DaoMatricula daoMatricula;
+    private DaoAPrazo daoAprazo;
+    private DaoAVista daoAvista;
 }
