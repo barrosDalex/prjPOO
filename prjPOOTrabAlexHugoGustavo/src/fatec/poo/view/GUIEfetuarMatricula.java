@@ -396,6 +396,10 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
             aluno = daoAluno.Consultar(cpf);
             
             if (pessoa != null){
+                tftfAgen.setEnabled(true);
+                tftfNcheq.setEnabled(true);
+                ftfDataPag.setEnabled(true);
+                
                 txtfNome.setText( pessoa.getNome());
                 
                 matricula = daoMatricula.consultar(cpf);
@@ -403,6 +407,8 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                 if (matricula != null){                   
                     btnAlterar.setEnabled(true);
                     btnExcluir.setEnabled(true);
+                    
+                    btnConsultar.setEnabled(false);
                     
                     ftfDataMatricula.setText(matricula.getData());
                     
@@ -422,7 +428,8 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                     
                 }
                 else{
-                    btnInserir.setEnabled(true);                                        
+                    btnInserir.setEnabled(true);
+                    btnConsultar.setEnabled(false);
                 }
                 
 
