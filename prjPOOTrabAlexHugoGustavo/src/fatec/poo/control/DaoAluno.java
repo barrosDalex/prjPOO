@@ -23,7 +23,7 @@ public class DaoAluno {
             ps.setString(2, aluno.getEscolaridade());
             ps.execute();
         } catch (SQLException ex) {
-            System.out.println(ex.toString());
+            System.out.println("Inserir "+ex.toString());
         }
     }
     
@@ -35,7 +35,7 @@ public class DaoAluno {
             ps.setString(2, aluno.getCPF());
             ps.execute();
         }catch (SQLException ex){
-            System.out.println(ex.toString());
+            System.out.println("Alterar "+ex.toString());
         }
 }
     
@@ -44,19 +44,18 @@ public class DaoAluno {
         PreparedStatement ps = null;
     
         try {
-            ps = conn.prepareStatement("SELECT tb_Pessoa.Nome, tb_Aluno.Escolaridade FROM tb_Aluno, tb_Pessoa where tb_Pessoa.cpf = ?"
-                + " and tb_Aluno.cpf = tb_Pessoa.cpf ");
-            ps.setString(1, cpf);
-            ResultSet rs = ps.executeQuery();
+        ps = conn.prepareStatement("SELECT Nome, Escolaridade FROM tb_Aluno, tb_Pessoa where tb_Pessoa.cpf = tb_Aluno.cpf AND tb_Pessoa.cpf = ?");
+        ps.setString(1, cpf);
+        ResultSet rs = ps.executeQuery();
         
-            if (rs.next() == true){
-                a = new Aluno(cpf, rs.getString(1));
-                a.setEscolaridade(rs.getString(2));
-            }
+        if (rs.next() == true){
+            a = new Aluno(cpf, rs.getString(1));
+            a.setEscolaridade(rs.getString(2));
+        }
         
         
     } catch (SQLException ex){
-        System.out.println(ex.toString());
+        System.out.println("Consultar a "+ ex.toString());
     }
     return a;
 }
@@ -70,7 +69,7 @@ public class DaoAluno {
             
             ps.execute();
         } catch (SQLException ex) {
-            System.out.println(ex.toString());
+            System.out.println("Excluir "+ex.toString());
         }
     }
     

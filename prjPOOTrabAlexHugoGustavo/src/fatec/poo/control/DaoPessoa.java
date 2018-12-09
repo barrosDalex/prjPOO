@@ -39,7 +39,7 @@ public class DaoPessoa {
             
             ps.execute();
         } catch (SQLException ex) {
-             System.out.println(ex.toString());
+             System.out.println("inserir "+ex.toString());
         }
     }
     
@@ -80,7 +80,7 @@ public class DaoPessoa {
             
             ps.execute();   
         } catch (SQLException ex) {
-             System.out.println(ex.toString()); 
+             System.out.println("alterar "+ex.toString()); 
         }
     }
     
@@ -110,7 +110,7 @@ public class DaoPessoa {
                 p.setEmail(rs.getString(15));
             }
         } catch (SQLException ex) { 
-             System.out.println(ex.toString());   
+             System.out.println("consultar "+ex.toString());   
         }
         
         return p;
@@ -125,7 +125,7 @@ public class DaoPessoa {
                       
             ps.execute();
         } catch (SQLException ex) {
-             System.out.println(ex.toString());   
+             System.out.println("excluir "+ex.toString());   
         }
     }
     
@@ -144,7 +144,7 @@ public class DaoPessoa {
             }
         }
         catch (SQLException ex) {
-            System.out.println(ex.toString());
+            System.out.println("ListarInstrutor "+ex.toString());
         }
                 
         return pessoas;
@@ -164,11 +164,9 @@ public class DaoPessoa {
             }
             
         } catch (SQLException ex) { 
-             System.out.println(ex.toString());   
+             System.out.println("consultarAluno "+ex.toString());   
         }
         
         return p;
     }
-    
-
 }

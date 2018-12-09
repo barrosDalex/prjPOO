@@ -1,11 +1,13 @@
 package fatec.poo.control;
 
+import fatec.poo.model.Aluno;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
 import fatec.poo.model.Matricula;
+import fatec.poo.model.Turma;
 
 public class DaoMatricula {
     private Connection conn;
@@ -21,9 +23,10 @@ public class DaoMatricula {
             
             ps.setString(1, matricula.getAluno().getCPF());
             ps.setString(2, matricula.getData());
-            ps.setString(3, Double.toString(matricula.getNota()));
-            ps.setString(4, Integer.toString(matricula.getQtdeFaltas()));
-            ps.setString(5, matricula.getTurma().getSiglaTurma());
+            ps.setDouble(3, matricula.getNota());
+            ps.setString(4, matricula.getTurma().getSiglaTurma());
+            ps.setInt(5, matricula.getQtdeFaltas());
+
             
             ps.execute();
         } catch (SQLException ex) {
@@ -53,6 +56,8 @@ public class DaoMatricula {
     
     public Matricula consultar(String cpf){
         Matricula m = null;
+        Aluno a = null;
+        Turma t = null;
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("SELECT * FROM tb_Matricula WHERE cpf = ?");
@@ -61,10 +66,14 @@ public class DaoMatricula {
             ResultSet rs = ps.executeQuery();
             
             if(rs.next() == true){
+                a = new DaoAluno(conn).Consultar( rs.getString("cpf"));
                 m = new Matricula();
+                t = new DaoTurma(conn).consultar(cpf);
+                m.setAluno(a);
                 m.setData(rs.getString(2));
                 m.setNota(Double.parseDouble(rs.getString(3)));
-                m.setQtdeFaltas(Integer.parseInt(rs.getString(4)));
+                m.setTurma(t);
+                m.setQtdeFaltas(Integer.parseInt(rs.getString(5)));
             }
             
         } catch (SQLException ex){

@@ -57,7 +57,7 @@ public class DaoAPrazo {
         PreparedStatement ps = null;
         
         try{
-            ps = conn.prepareStatement("SELECT* FROM tb_APrazo WHERE cpfMatricula = ?");
+            ps = conn.prepareStatement("SELECT * FROM tb_APrazo WHERE cpfMatricula = ?");
             ps.setString(1, cpf);
             
             ResultSet rs = ps.executeQuery();

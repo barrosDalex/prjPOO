@@ -17,7 +17,6 @@ import fatec.poo.model.APrazo;
 import fatec.poo.model.AVista;
 import fatec.poo.model.Aluno;
 import fatec.poo.model.Curso;
-import fatec.poo.model.Instrutor;
 import fatec.poo.model.Matricula;
 import fatec.poo.model.Pessoa;
 import fatec.poo.model.Turma;
@@ -54,7 +53,6 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        ftfCPFAluno = new javax.swing.JFormattedTextField();
         cboxTurmas = new javax.swing.JComboBox<>();
         cboxCursos = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -81,6 +79,7 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        ftfCPFAluno = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Efetuar matrícula");
@@ -108,12 +107,6 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         jLabel3.setText("Turma");
 
         jLabel4.setText("CPF aluno");
-
-        try {
-            ftfCPFAluno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
 
         cboxTurmas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,6 +287,17 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
             }
         });
 
+        try {
+            ftfCPFAluno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        ftfCPFAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfCPFAlunoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -304,27 +308,26 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(ftfCPFAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addGap(15, 15, 15))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ftfCPFAluno, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                    .addComponent(cboxTurmas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cboxCursos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(ftfDataMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cboxTurmas, javax.swing.GroupLayout.Alignment.LEADING, 0, 92, Short.MAX_VALUE)
+                                    .addComponent(cboxCursos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addGap(26, 26, 26)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(panlPagamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
@@ -336,7 +339,11 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                             .addGap(61, 61, 61)
                             .addComponent(btnExcluir)
                             .addGap(52, 52, 52)
-                            .addComponent(btnSair))))
+                            .addComponent(btnSair)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(ftfDataMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -355,20 +362,21 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                     .addComponent(cboxCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(txtfValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cboxTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ftfCPFAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)
-                        .addComponent(txtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ftfCPFAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panlPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInserir)
                     .addComponent(btnSair)
@@ -392,8 +400,10 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
         cpf = ftfCPFAluno.getText().replaceAll("[.,-]", "");
+        boolean cp = Pessoa.validarCPF(cpf);
         
-        if (Pessoa.validarCPF(cpf) == true){
+        if (cp == true){
+            
             pessoa = null;
             aluno = null;
             
@@ -401,47 +411,48 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
             aluno = daoAluno.Consultar(cpf);
             
             if (pessoa != null){
-                tftfAgen.setEnabled(true);
-                tftfNcheq.setEnabled(true);
-                ftfDataPag.setEnabled(true);
                 
                 txtfNome.setText( pessoa.getNome());
                 
                 matricula = daoMatricula.consultar(cpf);
                 
-                if (matricula != null){                   
+                if (matricula != null){
+                    //existe
                     btnAlterar.setEnabled(true);
                     btnExcluir.setEnabled(true);
-                    
                     btnConsultar.setEnabled(false);
                     
-                    ftfDataMatricula.setText(matricula.getData());
+                    ftfDataMatricula.setText(matricula.getData());                                      
                     
                     aPrazo = daoAprazo.consultar(cpf);
                     aVista = daoAvista.consultar(cpf);
-                    
-                    if (aPrazo == null){
-                        tftfAgen.setText( Integer.toString(aVista.getAgencia()));
-                        tftfNcheq.setText(Integer.toString(aVista.getNCheque()));
-                        ftfDataPag.setText(aVista.getPreData());
-                    }
-                    else{
+                                                          
+                    if (aPrazo != null){  
+                        System.out.println("Prazo");
                         tftfJur.setText( Double.toString(aPrazo.getTaxaJuros()) );
                         tftfQtdeMes.setText( Integer.toString( aPrazo.getQtdeMensalidade() ) );
                         ftfDataVenc.setText( aPrazo.getDtVencimento());
                     }
+                    else if (aVista != null) {
+                        System.out.println("Vista");
+                        tftfAgen.setText( Integer.toString(aVista.getAgencia()));
+                        tftfNcheq.setText(Integer.toString(aVista.getNCheque()));
+                        ftfDataPag.setText(aVista.getPreData());
+                    }
                     
                 }
                 else{
+                    //nao existe
+                    tftfAgen.setEnabled(true);
+                    tftfNcheq.setEnabled(true);
+                    ftfDataPag.setEnabled(true);
+                    
                     btnInserir.setEnabled(true);
                     btnConsultar.setEnabled(false);
-                }
-                
-
-                
+                }             
                 
             }
-            else JOptionPane.showMessageDialog(null, "CPF inserido não é válido.");
+            else JOptionPane.showMessageDialog(null, "CPF inserido não encontrado.");
         }
         else{
             JOptionPane.showMessageDialog(null, "CPF inserido não é válido.");
@@ -451,19 +462,23 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void radAvistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAvistaActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+                    
+        tftfAgen.setEnabled(true);
+        tftfNcheq.setEnabled(true);
+        ftfDataPag.setEnabled(true);
+
+        tftfJur.setEnabled(false);
+        tftfQtdeMes.setEnabled(false);
+        ftfDataVenc.setEnabled(false);
         
         if(radAvista.isSelected() && radAprazo.isSelected() ){         
             radAvista.setSelected(true);
             radAprazo.setSelected(false);
             
-            tftfAgen.setEnabled(true);
-            tftfNcheq.setEnabled(true);
-            ftfDataPag.setEnabled(true);
-            
-            tftfJur.setEnabled(false);
-            tftfQtdeMes.setEnabled(false);
-            ftfDataVenc.setEnabled(false);
+            tftfJur.setText("");
+            tftfQtdeMes.setText("");
+            ftfDataVenc.setText("");
             
         }
         else{
@@ -489,18 +504,21 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
 
     private void radAprazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAprazoActionPerformed
         // TODO add your handling code here:
+        tftfAgen.setEnabled(false);
+        tftfNcheq.setEnabled(false);
+        ftfDataPag.setEnabled(false);
+
+        tftfJur.setEnabled(true);
+        tftfQtdeMes.setEnabled(true);
+        ftfDataVenc.setEnabled(true);
+            
         if(radAvista.isSelected() && radAprazo.isSelected() ){         
             radAvista.setSelected(false);
             radAprazo.setSelected(true);
             
-            tftfAgen.setEnabled(false);
-            tftfNcheq.setEnabled(false);
-            ftfDataPag.setEnabled(false);
-            
-            tftfJur.setEnabled(true);
-            tftfQtdeMes.setEnabled(true);
-            ftfDataVenc.setEnabled(true);
-            
+            tftfAgen.setText("");
+            tftfNcheq.setText("");
+            ftfDataPag.setText("");                   
         }
         else{
             radAprazo.setSelected(true);
@@ -532,7 +550,7 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
             
-        radAvista.setSelected(true);
+        radAvista.setSelected(false);
         radAprazo.setSelected(false);
         
         daoTurma = new DaoTurma(conexao.conectar());
@@ -540,7 +558,7 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         daoMatricula = new DaoMatricula(conexao.conectar());
         daoPessoa = new DaoPessoa(conexao.conectar());
         daoAluno = new DaoAluno(conexao.conectar());
-        
+             
         cboxCursos.removeAllItems();
         
         cursos = daoCurso.ListarCursos();
@@ -583,8 +601,22 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
         
+        aluno = daoAluno.Consultar(cpf);
+        
+        matricula = new Matricula();        
+        matricula.addAluno(aluno);
+        matricula.addTurma( daoTurma.consultar( String.valueOf(cboxTurmas.getSelectedItem()) ) );
+        matricula.setData(ftfDataMatricula.getText().replaceAll("[(,//),-]", ""));        
+        matricula.setQtdeFaltas(0);
+                
+        daoMatricula.inserir(matricula);
+        
         
     }//GEN-LAST:event_btnInserirActionPerformed
+
+    private void ftfCPFAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCPFAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftfCPFAlunoActionPerformed
 
     /**
      * @param args the command line arguments
