@@ -149,5 +149,26 @@ public class DaoPessoa {
                 
         return pessoas;
     }
+    
+    public Pessoa consultarAluno(String cpf){
+        Pessoa p = null;
+        PreparedStatement ps = null;
+        
+        try {
+            ps = conn.prepareStatement("SELECT cpf FROM tb_aluno WHERE cpf = ?");
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next() == true){
+                p = consultar(rs.getString("cpf"));
+            }
+            
+        } catch (SQLException ex) { 
+             System.out.println(ex.toString());   
+        }
+        
+        return p;
+    }
+    
 
 }
