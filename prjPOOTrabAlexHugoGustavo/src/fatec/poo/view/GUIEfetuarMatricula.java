@@ -270,6 +270,11 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
 
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         btnSair.setText("Sair");
@@ -431,13 +436,13 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                         System.out.println("Prazo");
                         tftfJur.setText( Double.toString(aPrazo.getTaxaJuros()) );
                         tftfQtdeMes.setText( Integer.toString( aPrazo.getQtdeMensalidade() ) );
-                        ftfDataVenc.setText( aPrazo.getDtVencimento());
+                        ftfDataVenc.setText( aPrazo.getDtVencimento().replaceAll("[.,-]", ""));
                     }
                     else if (aVista != null) {
                         System.out.println("Vista");
                         tftfAgen.setText( Integer.toString(aVista.getAgencia()));
                         tftfNcheq.setText(Integer.toString(aVista.getNCheque()));
-                        ftfDataPag.setText(aVista.getPreData());
+                        ftfDataPag.setText(aVista.getPreData().replaceAll("[.,-]", ""));
                     }
                     
                 }
@@ -557,8 +562,10 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
         daoCurso = new DaoCurso(conexao.conectar());
         daoMatricula = new DaoMatricula(conexao.conectar());
         daoPessoa = new DaoPessoa(conexao.conectar());
-        daoAluno = new DaoAluno(conexao.conectar());
-             
+        daoAluno = new DaoAluno(conexao.conectar());        
+        daoAprazo = new DaoAPrazo((conexao.conectar()));
+        daoAvista = new DaoAVista((conexao.conectar()));
+        
         cboxCursos.removeAllItems();
         
         cursos = daoCurso.ListarCursos();
@@ -611,12 +618,42 @@ public class GUIEfetuarMatricula extends javax.swing.JFrame {
                 
         daoMatricula.inserir(matricula);
         
+        if ( radAprazo.isSelected() == true ){
+            System.out.println("Pra");
+            aPrazo.setDtVencimento( ftfDataVenc.getText() );
+            aPrazo.setMatricula(matricula);
+            aPrazo.setQtdeMensalidade( Integer.parseInt( tftfQtdeMes.getText() ) );
+            aPrazo.setTaxaJuros( Double.parseDouble( tftfJur.getText() ));
+            aPrazo.setValor( Double.parseDouble(txtfValor.getText()) );
+            
+            daoAprazo.inserir(aPrazo);
+        }
+        else if( radAvista.isSelected() == true){
+            System.out.println("Vid");
+            aVista.setAgencia( Integer.parseInt(tftfAgen.getText()) );
+            aVista.setMatricula(matricula);
+            aVista.setNCheque( Integer.parseInt(cpf) );
+            aVista.setPreData(cpf);            
+            aVista.setValor( Double.parseDouble(txtfValor.getText()) );
+            
+            daoAvista.inserir(aVista);
+        }
+        
         
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void ftfCPFAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCPFAlunoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ftfCPFAlunoActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+        matricula = new Matricula();        
+        matricula.addAluno(aluno);
+        matricula.addTurma( daoTurma.consultar( String.valueOf(cboxTurmas.getSelectedItem()) ) );
+        matricula.setData(ftfDataMatricula.getText().replaceAll("[(,//),-]", ""));
+        
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
     /**
      * @param args the command line arguments
